@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import HeroSection from '../components/case/HeroSection';
 import AboutSection from '../components/case/AboutSection';
