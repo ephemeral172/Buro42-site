@@ -8,6 +8,12 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
+# Build-args для Vite (передаются из CI/CD через --build-arg)
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+
 # Собираем Vite-приложение
 COPY . .
 RUN npm run build
