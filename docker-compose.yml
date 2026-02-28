@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  axioma8-home:
+    # Собранный GitHub Actions образ, опубликованный в GHCR
+    image: ghcr.io/ephemeral172/axioma8-site:latest
+    # Если вы делаете stack в Portainer, обычно удобнее задавать IMAGE_OWNER в Environment variables
+    # IMAGE_OWNER=<github-owner>
+
+    # Конфиг nginx запечён в image через Dockerfile.
+    # Если хотите быстро править конфиг без пересборки образа — раскомментируйте volume ниже:
+    # volumes:
+    #   - /opt/axioma8-site/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.axioma8.rule=Host(`axioma8.ru`)"
+      - "traefik.http.routers.axioma8.entrypoints=websecure"
+      - "traefik.http.routers.axioma8.tls=true"
+      - "traefik.http.services.axioma8.loadbalancer.server.port=80"
+      - "traefik.http.routers.axioma8.tls.certresolver=leresolver"
+
+    networks:
+      - traefik_net
+
+    restart: unless-stopped
+
+networks:
+  traefik_net:
+    external: true
