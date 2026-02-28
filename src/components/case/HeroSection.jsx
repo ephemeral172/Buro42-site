@@ -128,7 +128,7 @@ export default function HeroSection() {
               <div className="relative overflow-hidden rounded-lg border-2 border-orange-500/30">
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6918b5f06c3ad045e4f53670/f24018497_telegram-cloud-photo-size-2-5301134849508839025-y.jpg"
-                  alt="Кочергин Максим"
+                  alt="Максим Кочергин"
                   className="w-64 h-64 object-cover transition-all duration-500" />
 
                 {/* Scan line effect */}
@@ -172,7 +172,7 @@ export default function HeroSection() {
               <div className="relative overflow-hidden rounded-lg border-2 border-orange-500/30">
                 <img
                   src="/images/akulov.jpg"
-                  alt="Акулов Сергей"
+                  alt="Сергей Акулов"
                   className="w-64 h-64 object-cover scale-125 transition-all duration-500" />
 
                 {/* Scan line effect */}
