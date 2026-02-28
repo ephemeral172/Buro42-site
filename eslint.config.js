@@ -6,9 +6,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
-  // CommonJS конфиг-файлы (tailwind, postcss и т.д.)
+  // Только tailwind.config.js использует CommonJS (module.exports / require)
   {
-    files: ['tailwind.config.js', 'postcss.config.js'],
+    files: ['tailwind.config.js'],
     languageOptions: {
       sourceType: 'commonjs',
       globals: globals.node,
@@ -36,8 +36,17 @@ export default [
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      // React-специфичные отключения
       'react/jsx-no-target-blank': 'off',
       'react/prop-types': 'off',
+      'react/no-unescaped-entities': 'off',
+      'react/no-unknown-property': 'off',
+      // no-unused-vars: предупреждение вместо ошибки, React-импорты игнорируются
+      'no-unused-vars': ['warn', {
+        varsIgnorePattern: '^React$',
+        argsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
