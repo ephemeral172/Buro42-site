@@ -1,0 +1,90 @@
+name: CI
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  # Типичнее хранить образ не в ghcr.io/owner/repo/name, а как отдельный пакет: ghcr.io/owner/axioma8-site
+  IMAGE_NAME: ${{ github.repository_owner }}/fullfaq-site
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Lint & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  docker:
+    name: Docker Build/Push (GHCR)
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and (conditionally) push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: ${{ github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'master') }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
