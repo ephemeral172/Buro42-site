@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Cpu, Rocket, Shield, Gauge } from 'lucide-react';
 
 const features = [
-  { icon: Rocket, text: 'Фулстак-разработчик с фокусом на AI-продукты и быстрый вывод решений в продакшен.' },
-  { icon: Gauge, text: 'Специализируюсь на создании MVP и проверке продуктовых гипотез в сжатые сроки.' },
-  { icon: Cpu, text: 'Использую AI как инструмент ускорения, сохраняя контроль над архитектурой и качеством кода.' },
-  { icon: Shield, text: 'Бэкэнд проектирую и пишу вручную — с учетом нагрузки, безопасности и роста.' },
+  { icon: Rocket, text: 'Команда разработчиков с фокусом на AI-продукты и быстрый вывод решений в продакшен.' },
+  { icon: Gauge, text: 'Специализируемся на создании MVP и проверке продуктовых гипотез в сжатые сроки.' },
+  { icon: Cpu, text: 'Используем AI как инструмент ускорения, сохраняя контроль над архитектурой и качеством кода.' },
+  { icon: Shield, text: 'Бэкэнд проектируем и пишем вручную — с учетом нагрузки, безопасности и роста.' },
 ];
 
 export default function AboutSection() {
@@ -23,7 +23,7 @@ export default function AboutSection() {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500" />
-            <span className="text-orange-500 font-mono text-sm tracking-wider">ABOUT_ME</span>
+            <span className="text-orange-500 font-mono text-sm tracking-wider">ABOUT_US</span>
           </div>
         </motion.div>
 
@@ -73,8 +73,8 @@ export default function AboutSection() {
         >
           <div className="bg-gradient-to-r from-orange-500/10 via-orange-500/5 to-transparent border-l-4 border-orange-500 p-6 rounded-r-lg">
             <p className="text-gray-300 text-lg leading-relaxed">
-              Работаю с веб-приложениями, Telegram Mini Apps и AI-автоматизацией. 
-              <span className="text-orange-500 font-semibold"> Ориентирован на результат и бизнес-ценность.</span>
+              Работаем с веб-приложениями, Telegram Mini Apps и AI-автоматизацией.
+              <span className="text-orange-500 font-semibold"> Ориентированы на результат и бизнес-ценность.</span>
             </p>
           </div>
         </motion.div>

@@ -154,14 +154,39 @@ export default function AIBusinessSection() {
                             )}
 
                             {caseItem.id === 2 && (
-                              <div>
-                                <h4 className="text-green-500 font-semibold mb-3">Воркфлоу n8n</h4>
-                                <div className="bg-[#0a0a0a] border border-green-500/30 rounded-lg p-4 overflow-hidden">
-                                  <img
-                                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695f88e273d15fac12966f07/60b299308_2026-01-10140123.png"
-                                    alt="n8n Workflow - WhatsApp Bot"
-                                    className="w-full h-auto rounded"
-                                  />
+                              <div className="space-y-6">
+                                <div>
+                                  <h4 className="text-green-500 font-semibold mb-3">Воркфлоу n8n</h4>
+                                  <div className="bg-[#0a0a0a] border border-green-500/30 rounded-lg p-4 overflow-hidden">
+                                    <img
+                                      src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/695f88e273d15fac12966f07/60b299308_2026-01-10140123.png"
+                                      alt="n8n Workflow - Telegram Bot"
+                                      className="w-full h-auto rounded"
+                                    />
+                                  </div>
+                                </div>
+                                
+                                <div>
+                                  <h4 className="text-green-500 font-semibold mb-3">Скриншоты решения</h4>
+                                  <div className="flex h-64 sm:h-80 md:h-96 gap-2 w-full">
+                                    {[
+                                      'https://i.postimg.cc/MGV3D6Dp/5790f4cd0efc466277a51256466678c4-942ee4d7-f4e2-440d-8b95-0e0e6a3603f3.jpg',
+                                      'https://i.postimg.cc/qRrbDPbt/762862db091a958e7c37ae9edfe6fc50-e6f9bc20-0520-4115-a537-2ddf496f646a.jpg',
+                                      'https://i.postimg.cc/50J7Kh73/d151bf2661b6409121f47587a03fd7fa-c05a72e8-34cc-42d0-a868-6d2f08e6908e.jpg'
+                                    ].map((src, index) => (
+                                      <div
+                                        key={index}
+                                        className="relative flex-1 hover:flex-[3] transition-all duration-500 ease-in-out overflow-hidden rounded-lg border border-green-500/30 cursor-pointer group"
+                                      >
+                                        <img
+                                          src={src}
+                                          alt={`Telegram Bot Screenshot ${index + 1}`}
+                                          className="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                      </div>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             )}

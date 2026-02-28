@@ -37,15 +37,6 @@ export default function InteractiveBoard() {
 
   // Initial load from Supabase
   useEffect(() => {
-    // Если Supabase не сконфигурирован — используем localStorage
-    if (!supabase) {
-      setIsSupabaseConfigured(false);
-      const saved = localStorage.getItem('neon-board-paths');
-      if (saved) setPaths(JSON.parse(saved));
-      setIsLoading(false);
-      return;
-    }
-
     const fetchPaths = async () => {
       try {
         const { data, error } = await supabase
@@ -112,7 +103,7 @@ export default function InteractiveBoard() {
     const lastPath = myPaths[myPaths.length - 1];
     
     setPaths(prev => prev.filter(p => p.id !== lastPath.id));
-    if (supabase) await supabase.from('board_paths').delete().eq('id', lastPath.id);
+    await supabase.from('board_paths').delete().eq('id', lastPath.id);
   };
 
   // Initialize canvas size
@@ -262,13 +253,12 @@ export default function InteractiveBoard() {
           userId: userId,
           user_id: userId
         };
-        if (supabase) {
-          const { error } = await supabase.from('board_paths').insert([pathData]);
-          if (error) {
-            console.error('Supabase Insert Error:', error);
-            if (error.code === '42501') {
-              alert('Ошибка доступа: Пожалуйста, включите RLS политики в Supabase для анонимных пользователей.');
-            }
+        const { error } = await supabase.from('board_paths').insert([pathData]);
+        if (error) {
+          console.error('Supabase Insert Error:', error);
+          // If it's a policy error, we might need to tell the user
+          if (error.code === '42501') {
+            alert('Ошибка доступа: Пожалуйста, включите RLS политики в Supabase для анонимных пользователей.');
           }
         }
       }
@@ -289,7 +279,7 @@ export default function InteractiveBoard() {
     }
 
     // Delete from DB
-    if (supabase) await supabase.from('board_paths').delete().or(`user_id.eq.${userId},userId.eq.${userId}`);
+    await supabase.from('board_paths').delete().or(`user_id.eq.${userId},userId.eq.${userId}`);
   };
 
   const mapBounds = useMemo(() => {

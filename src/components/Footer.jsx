@@ -41,8 +41,8 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-gray-400 font-mono text-sm">
-            © 2026 — AI fullstack dev{' '}
-            <span className="text-orange-500 font-semibold">Maxim Kochergin</span>
+            © 2026 — AI & Web Development{' '}
+            <span className="text-orange-500 font-semibold">Fullfaq Team</span>
           </p>
         </motion.div>
       </div>
