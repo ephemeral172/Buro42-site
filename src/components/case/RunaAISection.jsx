@@ -77,7 +77,6 @@ export default function RunaAISection() {
                 transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
                 className="group relative"
               >
-                {/* Card with gradient border effect */}
                 <div className="relative rounded-2xl border border-ifi-border bg-mineshaft-900/50 p-6 transition-all duration-300 hover:border-ifi-lime/20 hover:shadow-lg hover:shadow-black/25">
                   <div className="mb-4">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-cyan-500/10 ring-1 ring-cyan-400/15 transition-transform duration-300 group-hover:scale-[1.02]">

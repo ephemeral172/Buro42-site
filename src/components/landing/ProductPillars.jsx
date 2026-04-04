@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { AnimatedLimeDot } from '@/components/landing/AnimatedLimeDot';
 import PillarMotionArt from '@/components/landing/PillarMotionArt';
+import GlassCard from '@/components/ui/GlassCard';
 
 function PillarPanel({ items }) {
   return (
@@ -11,9 +12,9 @@ function PillarPanel({ items }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-8% 0px' }}
       transition={{ duration: 0.45 }}
-      whileHover={{ boxShadow: '0 -28px 72px -18px rgba(0,0,0,0.38)' }}
-      className="overflow-hidden rounded-md border border-ifi-border bg-gradient-to-b from-mineshaft-800/55 to-mineshaft-900/85 shadow-[0_-32px_80px_-20px_rgba(0,0,0,0.35)]"
+      className="h-full"
     >
+      <GlassCard innerClassName="p-0">
       <ul className="divide-y divide-ifi-border/40 p-5 md:p-8">
         {items.map((item, j) => (
           <motion.li
@@ -37,6 +38,7 @@ function PillarPanel({ items }) {
           </motion.li>
         ))}
       </ul>
+      </GlassCard>
     </motion.div>
   );
 }

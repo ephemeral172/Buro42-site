@@ -78,8 +78,8 @@ export default function LandingsSection() {
                 transition={{ duration: 0.4, delay: index < 6 ? index * 0.1 : (index % 3) * 0.1 }}
                 className="group relative">
 
-                <div className="relative h-full bg-ifi-card border border-ifi-border rounded-2xl p-6 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-100/50 to-slate-100/50 blur-3xl group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="relative h-full overflow-hidden rounded-2xl border border-ifi-border bg-ifi-card p-6 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+                  <div className="pointer-events-none absolute top-0 right-0 h-48 w-48 bg-gradient-to-br from-blue-100/50 to-slate-100/50 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
                   <div className="relative h-48 mb-6 rounded-xl overflow-hidden border border-ifi-border group-hover:border-blue-100 transition-colors duration-300 bg-mineshaft-800">
                     <div className="absolute inset-0 bg-mineshaft-900/30 group-hover:bg-transparent transition-colors duration-300 z-10" />
@@ -108,7 +108,6 @@ export default function LandingsSection() {
                     Открыть превью
                   </button>
 
-                  {/* Corner accent */}
                 </div>
                 </motion.div>
               )}
