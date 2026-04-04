@@ -16,11 +16,11 @@ export default function QuoteBand() {
       />
       <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
         <motion.p
-          initial={{ opacity: 0, letterSpacing: '0.18em' }}
-          whileInView={{ opacity: 1, letterSpacing: '0.14em' }}
+          initial={{ opacity: 0, letterSpacing: '0.17em' }}
+          whileInView={{ opacity: 1, letterSpacing: '0.13em' }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-xs font-semibold uppercase text-ifi-lime"
+          className="text-sm font-semibold uppercase text-ifi-lime"
         >
           Подход
         </motion.p>

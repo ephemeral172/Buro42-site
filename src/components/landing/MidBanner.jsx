@@ -19,7 +19,7 @@ export default function MidBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-5xl text-balance text-center md:text-left"
+          className="mx-auto max-w-5xl text-balance text-center"
         >
           <p className="text-2xl font-semibold leading-snug tracking-tight text-ifi-fg md:text-3xl md:leading-tight lg:text-4xl lg:leading-[1.15]">
             От пилота до промышленной эксплуатации — с понятной дорожной картой и метриками.

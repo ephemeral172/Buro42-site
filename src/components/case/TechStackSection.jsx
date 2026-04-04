@@ -79,9 +79,9 @@ export default function TechStackSection() {
           className="mb-14 text-center"
         >
           <div className="mb-4 flex items-center justify-center gap-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-ifi-lime/70" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">Стек</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-ifi-lime/70" />
+            <div className="h-px w-14 bg-gradient-to-r from-transparent to-ifi-lime/70" />
+            <span className="font-mono text-sm uppercase tracking-[0.18em] text-ifi-lime">Стек</span>
+            <div className="h-px w-14 bg-gradient-to-l from-transparent to-ifi-lime/70" />
           </div>
         </motion.div>
 

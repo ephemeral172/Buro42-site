@@ -40,12 +40,12 @@ export default function VibeCodingSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-14 text-center"
         >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
-            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <div className="h-px w-14 bg-gradient-to-r from-transparent to-blue-600" />
+            <span className="font-mono text-sm uppercase tracking-[0.18em] text-blue-600">
               Подход
             </span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+            <div className="h-px w-14 bg-gradient-to-l from-transparent to-blue-600" />
           </div>
           <p className="text-2xl font-semibold text-ifi-fg tracking-tight">
             Скорость без потери дисциплины

@@ -31,9 +31,9 @@ export default function SkillsSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-14"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
-            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
+          <div className="mb-4 flex items-center gap-4">
+            <div className="h-px w-14 bg-gradient-to-r from-transparent to-blue-600" />
+            <span className="font-mono text-sm uppercase tracking-[0.18em] text-blue-600">
               Компетенции
             </span>
           </div>

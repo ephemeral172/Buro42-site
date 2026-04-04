@@ -67,7 +67,7 @@ function StatFigure({ stat, index }) {
   return (
     <motion.p
       ref={ref}
-      className="text-4xl font-semibold tracking-tight text-ifi-fg tabular-nums md:text-5xl"
+      className="w-full text-center text-4xl font-semibold tracking-tight text-ifi-fg tabular-nums md:text-5xl"
       initial={{ opacity: 0, y: 14, filter: 'blur(8px)' }}
       animate={
         isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 14, filter: 'blur(8px)' }
@@ -95,14 +95,14 @@ export default function StatsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -2 }}
-            className="text-center md:text-left"
+            className="flex flex-col items-center text-center"
           >
             <StatFigure stat={s} index={i} />
-            <p className="mt-2 text-base font-medium text-ifi-fg">{s.label}</p>
-            <p className="mt-1 text-sm text-mineshaft-400">{s.hint}</p>
+            <p className="mt-2 max-w-xs text-base font-medium text-ifi-fg">{s.label}</p>
+            <p className="mt-1 max-w-xs text-sm text-mineshaft-400">{s.hint}</p>
             <motion.a
               href={s.href}
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ifi-lime hover:text-[#ecf26d]"
+              className="mt-4 inline-flex items-center justify-center gap-1 text-sm font-semibold text-ifi-lime hover:text-[#ecf26d]"
               whileHover={{ x: 2 }}
               transition={{ type: 'spring', stiffness: 500, damping: 28 }}
             >

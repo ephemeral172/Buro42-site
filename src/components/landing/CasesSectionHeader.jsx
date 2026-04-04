@@ -11,7 +11,7 @@ export default function CasesSectionHeader() {
         transition={{ duration: 0.45 }}
         className="mx-auto max-w-6xl text-center"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ifi-lime">Кейсы</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ifi-lime">Кейсы</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">
           Реализованные проекты
         </h2>
