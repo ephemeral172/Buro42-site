@@ -1,6 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Server, Database, Cpu, Cloud, Box, Code2, FileCode } from 'lucide-react';
+import {
+  Zap,
+  Server,
+  Database,
+  Cpu,
+  Cloud,
+  Box,
+  Code2,
+  FileCode,
+  Sparkles,
+  Inbox,
+  Brain,
+} from 'lucide-react';
 
 const techCategories = [
   {
@@ -12,30 +24,37 @@ const techCategories = [
     ],
   },
   {
-    title: 'Backend',
+    title: 'Backend & API',
     techs: [
+      { name: 'FastAPI', icon: FileCode },
       { name: 'Node.js', icon: Server },
-      { name: 'Python', icon: FileCode },
       { name: 'TypeScript', icon: Code2 },
+      { name: 'Python', icon: FileCode },
+      { name: 'RabbitMQ', icon: Inbox },
     ],
   },
   {
-    title: 'Databases',
+    title: 'Data & хранилища',
     techs: [
       { name: 'PostgreSQL', icon: Database },
-      { name: 'MongoDB', icon: Database },
       { name: 'Redis', icon: Database },
+      { name: 'MongoDB', icon: Database },
     ],
   },
   {
-    title: 'AI & Automation',
+    title: 'AI & автоматизация',
     techs: [
-      { name: 'LLM', icon: Cpu },
+      { name: 'OpenAI API', icon: Sparkles },
+      { name: 'LLM / RAG', icon: Cpu },
+      {
+        name: 'Transformers (Hugging Face)',
+        icon: Brain,
+      },
       { name: 'n8n', icon: Cpu },
     ],
   },
   {
-    title: 'DevOps',
+    title: 'DevOps & инфраструктура',
     techs: [
       { name: 'Docker', icon: Box },
       { name: 'AWS', icon: Cloud },
@@ -45,140 +64,79 @@ const techCategories = [
 
 export default function TechStackSection() {
   return (
-    <section className="relative py-32 px-4 bg-[#121212]">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+    <section className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900 py-24 md:py-28 px-4">
+      {/* Плотный фон — иначе сквозь полупрозрачность проступает глобальный AuthPageBackground (SVG «объект»). */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_85%_55%_at_50%_0%,rgba(224,237,52,0.06),transparent_55%)]"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-14 text-center"
         >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500" />
-            <span className="text-orange-500 font-mono text-sm tracking-wider">TECH_ARSENAL</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500" />
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-ifi-lime/70" />
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">Стек</span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-ifi-lime/70" />
           </div>
         </motion.div>
 
-        {/* Tech grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {techCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-12% 0px' }}
+              transition={{
+                duration: 0.45,
+                delay: catIndex * 0.05,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={{ y: -2 }}
+              className="group relative rounded-2xl border border-ifi-border bg-mineshaft-900/70 p-6 shadow-sm backdrop-blur-sm transition-all hover:border-mineshaft-600 hover:shadow-md"
             >
-              {/* Card */}
-              <div className="relative h-full bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] border-2 border-orange-500/20 rounded-xl p-6 hover:border-orange-500/50 transition-all duration-300 overflow-hidden">
-                {/* Header with glow */}
-                <div className="relative mb-6">
-                  <h3 className="text-xl font-bold text-orange-500 mb-2 relative z-10">
-                    {category.title}
-                  </h3>
-                  <div className="h-1 w-16 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full" />
-                  <motion.div
-                    className="absolute -top-2 -left-2 w-20 h-20 bg-orange-500/20 rounded-full blur-2xl"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: catIndex * 0.3,
-                    }}
-                  />
-                </div>
-
-                {/* Technologies */}
-                <div className="space-y-3 relative z-10">
-                  {category.techs.map((tech, techIndex) => (
-                    <div
-                      key={techIndex}
-                      className="flex items-center gap-3 p-3 bg-[#0a0a0a]/50 border border-orange-500/10 rounded-lg hover:border-orange-500/30 hover:bg-[#0a0a0a]/80 transition-all duration-200 cursor-pointer"
-                    >
-                      {/* Icon */}
-                      <tech.icon className="w-6 h-6 text-orange-500" />
-                      
-                      {/* Name */}
-                      <span className="text-gray-300 font-mono text-sm flex-1">
-                        {tech.name}
-                      </span>
-
-                      {/* Status dot */}
-                      <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-                      </div>
-                      ))}
-                      </div>
-
-                {/* Corner decorations */}
-                <div className="absolute top-2 right-2 w-12 h-12 border-t border-r border-orange-500/20" />
-                <div className="absolute bottom-2 left-2 w-12 h-12 border-b border-l border-orange-500/20" />
-
-                {/* Hover effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/5 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  animate={{
-                    backgroundPosition: ['0% 0%', '100% 100%'],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                  }}
-                />
+              <div className="relative mb-5">
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-ifi-fg">
+                  {category.title}
+                </h3>
+                <div className="h-1 w-14 rounded-full bg-gradient-to-r from-ifi-lime to-ifi-lime/50" />
               </div>
 
-              {/* External glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/0 via-orange-600/20 to-orange-600/0 rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+              <div className="space-y-2">
+                {category.techs.map((tech, techIndex) => (
+                  <div
+                    key={techIndex}
+                    className="flex items-center gap-3 rounded-xl border border-ifi-border bg-mineshaft-900/50 p-3 transition-all duration-200 hover:border-ifi-lime/25 hover:bg-mineshaft-800/70"
+                  >
+                    <tech.icon className="h-5 w-5 shrink-0 text-ifi-lime/90" />
+                    <span className="flex-1 font-mono text-sm text-mineshaft-300">{tech.name}</span>
+                    <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-ifi-lime shadow-[0_0_8px_rgba(224,237,52,0.45)]" />
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom tagline */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-14 text-center"
         >
-          <div className="inline-flex items-center gap-2 bg-[#1a1a1a] border border-orange-500/30 rounded-full px-6 py-3">
-            <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-gray-400 font-mono text-sm">
-              Современный стек для быстрой разработки
+          <div className="inline-flex items-center gap-2 rounded-full border border-ifi-border bg-mineshaft-900/80 px-6 py-3 shadow-sm backdrop-blur-sm">
+            <div className="h-2 w-2 rounded-full bg-ifi-lime shadow-[0_0_10px_rgba(224,237,52,0.5)]" />
+            <span className="font-mono text-sm text-mineshaft-400">
+              Прагматичный выбор технологий под нагрузку и команду заказчика
             </span>
           </div>
         </motion.div>
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-orange-500 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -50, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
       </div>
     </section>
   );

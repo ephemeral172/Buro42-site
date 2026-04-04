@@ -6,8 +6,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  # Типичнее хранить образ не в ghcr.io/owner/repo/name, а как отдельный пакет: ghcr.io/owner/axioma8-site
-  IMAGE_NAME: ${{ github.repository_owner }}/fullfaq-site
+  IMAGE_NAME: ${{ github.repository_owner }}/buro42-site
 
 on:
   push:

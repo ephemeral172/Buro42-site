@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-  fullfaq-home:
-    # Собранный GitHub Actions образ, опубликованный в GHCR
-    image: ghcr.io/ephemeral172/fullfaq-site:latest
-    # Если вы делаете stack в Portainer, обычно удобнее задавать IMAGE_OWNER в Environment variables
-    # IMAGE_OWNER=<github-owner>
+  buro42-site:
+    # Образ из GHCR после push в main (.github/workflows/ci.yml → ghcr.io/<owner>/buro42-site).
+    # Подставьте своего владельца пакета вместо YOUR_GITHUB_OWNER.
+    image: ghcr.io/ephemeral172/buro42-site:latest
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.fullfaq.rule=Host(`fullfaq.dev`)"
-      - "traefik.http.routers.fullfaq.entrypoints=websecure"
-      - "traefik.http.routers.fullfaq.tls=true"
-      - "traefik.http.services.fullfaq.loadbalancer.server.port=80"
-      - "traefik.http.routers.fullfaq.tls.certresolver=leresolver"
+      # Замените домен на ваш хост
+      - "traefik.http.routers.buro42.rule=Host(`buro42.example`)"
+      - "traefik.http.routers.buro42.entrypoints=websecure"
+      - "traefik.http.routers.buro42.tls=true"
+      - "traefik.http.services.buro42.loadbalancer.server.port=80"
+      - "traefik.http.routers.buro42.tls.certresolver=leresolver"
 
     networks:
       - traefik_net

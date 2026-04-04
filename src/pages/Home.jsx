@@ -1,82 +1,81 @@
 import { motion, useScroll } from 'framer-motion';
-import HeroSection from '../components/case/HeroSection';
-import AboutSection from '../components/case/AboutSection';
+import SiteNav from '../components/landing/SiteNav';
+import InfisicalHero from '../components/landing/InfisicalHero';
+import TechMarqueeStrip from '../components/landing/TechMarqueeStrip';
+import ProductPillars from '../components/landing/ProductPillars';
+import MidBanner from '../components/landing/MidBanner';
+import SubFeaturesRow from '../components/landing/SubFeaturesRow';
+import QuoteBand from '../components/landing/QuoteBand';
+import IntegrationsGrid from '../components/landing/IntegrationsGrid';
+import GovernanceSection from '../components/landing/GovernanceSection';
+import ReliabilitySection from '../components/landing/ReliabilitySection';
+import StatsSection from '../components/landing/StatsSection';
+import CasesSectionHeader from '../components/landing/CasesSectionHeader';
 import VibeCodingSection from '../components/case/VibeCodingSection';
 import SkillsSection from '../components/case/SkillsSection';
 import TechStackSection from '../components/case/TechStackSection';
-import AIBusinessSection from '../components/case/AIBusinessSection';
+import ShadowGPTSection from '../components/case/ShadowGPTSection';
 import SEOMagicSection from '../components/case/SEOMagicSection';
 import RAGPlatformSection from '../components/case/RAGPlatformSection';
 import NutritionAppSection from '../components/case/NutritionAppSection';
 import RunaAISection from '../components/case/RunaAISection';
-import DiscountBotSection from '../components/case/DiscountBotSection';
-import LandingsSection from '../components/case/LandingsSection';
-import InteractiveBoard from '../components/case/InteractiveBoard';
-
 import Footer from '../components/Footer';
+import InfisicalPageShell from '../components/infisical-shell/InfisicalPageShell';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="relative bg-[#0a0a0a] min-h-screen overflow-hidden">
-      {/* Cyberpunk grid background */}
-      <div className="fixed inset-0 z-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(255, 107, 53, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 107, 53, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-
-      {/* Progress bar */}
+    <InfisicalPageShell>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 z-50 origin-left"
+        className="fixed top-0 left-0 right-0 z-[60] h-0.5 origin-left bg-ifi-lime"
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Content */}
-      <div className="relative z-10">
-        <HeroSection />
-        <AboutSection />
+      <SiteNav />
+      <div className="typography-site relative flex flex-1 flex-col">
+        <InfisicalHero />
+        <TechMarqueeStrip />
+        <ProductPillars />
+        <MidBanner />
+        <SubFeaturesRow />
+        <QuoteBand />
+        <IntegrationsGrid />
+        <GovernanceSection />
+        <ReliabilitySection />
+        <StatsSection />
         <VibeCodingSection />
         <SkillsSection />
         <TechStackSection />
-        <AIBusinessSection />
-        <SEOMagicSection />
-        <RAGPlatformSection />
+        <CasesSectionHeader />
+        {/* Единый фон для двух кейсов — без столкновения пастельных градиентов и полупрозрачных слоёв. */}
+        <div className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,237,52,0.055),transparent_55%)]"
+            aria-hidden
+          />
+          <div className="relative z-10">
+            <ShadowGPTSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
+            <SEOMagicSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
+            <RAGPlatformSection />
+          </div>
+        </div>
         <NutritionAppSection />
         <RunaAISection />
-        <DiscountBotSection />
-        <LandingsSection />
-        <InteractiveBoard />
         <Footer />
       </div>
-
-      {/* Ambient particles */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-orange-500 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-    </div>
+    </InfisicalPageShell>
   );
 }

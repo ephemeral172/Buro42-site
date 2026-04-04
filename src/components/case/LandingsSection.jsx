@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, ExternalLink, X, Zap } from 'lucide-react';
+import { Code, ExternalLink, X } from 'lucide-react';
 
 const websites = [
   { url: 'https://flower-heaven.vercel.app/', title: 'Flower Heaven', description: 'Лендинг цветочного магазина' },
@@ -39,11 +39,11 @@ export default function LandingsSection() {
   const displayedWebsites = isExpanded ? websites : websites.slice(0, 6);
 
   return (
-    <section className="relative py-32 px-4 mb-20">
+    <section className="relative py-24 md:py-28 px-4 mb-12 bg-mineshaft-900/30">
       <div className="max-w-6xl mx-auto">
         {/* Background effects */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-red-500/10 to-orange-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-slate-200/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-slate-200/25 to-blue-200/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
           {/* Header */}
@@ -55,15 +55,13 @@ export default function LandingsSection() {
             className="mb-12">
 
             <div className="flex items-center gap-4 mb-4">
-              <Code className="w-6 h-6 text-orange-500" />
-              <span className="text-orange-500 font-mono text-sm tracking-wider">CASE_07</span>
+              <Code className="w-6 h-6 text-blue-600" />
+              <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">Кейс</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-orange-600">
-                Фронтенд и лендинги
-              </span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ifi-fg">
+              Фронтенд и лендинги
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-mineshaft-400 text-lg">
               Производительные лендинги с упором на скорость и чистую архитектуру
             </p>
           </motion.div>
@@ -80,13 +78,11 @@ export default function LandingsSection() {
                 transition={{ duration: 0.4, delay: index < 6 ? index * 0.1 : (index % 3) * 0.1 }}
                 className="group relative">
 
-                <div className="relative h-full bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-orange-500/20 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 overflow-hidden">
-                  {/* Background gradient */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-orange-600/5 to-red-600/5 blur-3xl group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative h-full bg-ifi-card border border-ifi-border rounded-2xl p-6 hover:border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-100/50 to-slate-100/50 blur-3xl group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  {/* Iframe Preview */}
-                  <div className="relative h-48 mb-6 rounded-xl overflow-hidden border border-orange-500/20 group-hover:border-orange-500/50 transition-colors duration-300">
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10" />
+                  <div className="relative h-48 mb-6 rounded-xl overflow-hidden border border-ifi-border group-hover:border-blue-100 transition-colors duration-300 bg-mineshaft-800">
+                    <div className="absolute inset-0 bg-mineshaft-900/30 group-hover:bg-transparent transition-colors duration-300 z-10" />
                     <iframe
                       src={website.url}
                       className="w-[400%] h-[400%] origin-top-left pointer-events-none"
@@ -96,28 +92,24 @@ export default function LandingsSection() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-ifi-fg mb-2 group-hover:text-blue-700 transition-colors duration-300">
                     {website.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-6">
+                  <p className="text-mineshaft-400 text-sm mb-6">
                     {website.description}
                   </p>
 
                   {/* Button */}
                   <button
                   onClick={() => setSelectedWebsite(website.url)}
-                  className="flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors duration-200 font-semibold">
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors duration-200 font-semibold">
 
                     <ExternalLink className="w-4 h-4" />
                     Открыть превью
                   </button>
 
                   {/* Corner accent */}
-                  <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-orange-500/20 group-hover:border-orange-500/50 transition-colors duration-300" />
                 </div>
-
-                  {/* External glow */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/0 via-orange-600/20 to-orange-600/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -133,7 +125,7 @@ export default function LandingsSection() {
             >
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="px-8 py-3 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold hover:from-orange-500 hover:to-red-500 transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] flex items-center gap-2"
+                className="px-8 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-sm flex items-center gap-2"
               >
                 {isExpanded ? 'Скрыть' : `Показать еще (${websites.length - 6})`}
               </button>
@@ -150,14 +142,14 @@ export default function LandingsSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
           onClick={() => setSelectedWebsite(null)}>
 
             <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative bg-[#1a1a1a] border-2 border-orange-500/50 rounded-2xl p-4 w-full max-w-6xl h-[90vh] flex flex-col"
+            className="relative bg-ifi-card border border-ifi-border rounded-2xl p-4 w-full max-w-6xl h-[90vh] flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}>
 
               <div className="flex items-center justify-between mb-4">
@@ -165,21 +157,21 @@ export default function LandingsSection() {
                 href={selectedWebsite}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange-500 hover:text-orange-400 flex items-center gap-2">
+                className="text-blue-600 hover:text-blue-700 flex items-center gap-2 truncate text-sm">
 
                   {selectedWebsite}
                   <ExternalLink className="w-4 h-4" />
                 </a>
                 <button
                 onClick={() => setSelectedWebsite(null)}
-                className="text-gray-400 hover:text-white">
+                className="text-mineshaft-400 hover:text-ifi-fg p-1 rounded-lg hover:bg-mineshaft-800">
 
                   <X className="w-6 h-6" />
                 </button>
               </div>
               <iframe
               src={selectedWebsite}
-              className="w-full flex-1 rounded-lg border border-orange-500/30"
+              className="w-full flex-1 rounded-lg border border-ifi-border"
               title="Website Preview" />
 
             </motion.div>

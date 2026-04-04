@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Database, Server, Shield, Zap, TrendingUp, ChevronDown, ChevronUp, Target, Cpu, Network, Workflow, Share2 } from 'lucide-react';
+import {
+  Brain,
+  Database,
+  Server,
+  Shield,
+  Zap,
+  TrendingUp,
+  ChevronDown,
+  ChevronUp,
+  Target,
+  Cpu,
+  Workflow,
+  ExternalLink,
+} from 'lucide-react';
 
 export default function RAGPlatformSection() {
   const [expanded, setExpanded] = useState(false);
 
   const keyFeatures = [
     { icon: Brain, text: 'Контекстное reasoning вместо fine-tuning', color: 'text-blue-500' },
-    { icon: Database, text: 'Векторные БД (Qdrant/Chroma) и семантический поиск', color: 'text-cyan-500' },
+    { icon: Database, text: 'Векторные БД (Qdrant/Weaviate) и семантический поиск', color: 'text-cyan-500' },
     { icon: Workflow, text: 'Асинхронная обработка через RabbitMQ', color: 'text-indigo-500' },
-    { icon: Shield, text: 'Полный контроль над данными (On-prem/Private Cloud)', color: 'text-emerald-500' },
+    { icon: Shield, text: 'Полный контроль над данными (On-prem/Private Cloud)', color: 'text-ifi-lime' },
   ];
 
   const techStack = [
     { label: 'AI / ML', value: 'Claude Opus, Gemini 3, GPT 5.2 Pro, Llama 3.1, Mistral Large', color: 'from-blue-500 to-indigo-500' },
-    { label: 'Vector Storage', value: 'Qdrant / ChromaDB / PGVector', color: 'from-cyan-500 to-blue-500' },
+    { label: 'Vector Storage', value: 'Qdrant / Weaviate / PGVector', color: 'from-cyan-500 to-blue-500' },
     { label: 'Message Broker', value: 'RabbitMQ (Celery/Aio-pika)', color: 'from-orange-500 to-red-500' },
-    { label: 'Infrastructure', value: 'FastAPI, Docker, Kubernetes', color: 'from-emerald-500 to-teal-500' },
+    { label: 'Infrastructure', value: 'FastAPI, Docker', color: 'from-ifi-lime to-ifi-info' },
   ];
 
   const expandedDetails = {
@@ -41,182 +54,202 @@ export default function RAGPlatformSection() {
   };
 
   return (
-    <section className="relative py-32 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Background effects */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
-
-        <div className="relative z-10">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+    <section className="relative px-4 py-20 md:py-24">
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <div className="mb-4 flex items-center gap-4">
+            <Cpu className="h-6 w-6 text-ifi-lime" />
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">Кейс</span>
+          </div>
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-ifi-fg lg:text-5xl">
+            Корпоративная RAG-платформа
+          </h2>
+          <p className="max-w-3xl text-lg text-mineshaft-400">
+            Платформа для работы со структурированными и неструктурированными большими данными на базе ИИ — в одном
+            масштабируемом корпоративном решении. RAG-архитектура позволяет опираться на актуальные знания и
+            рассуждать в контексте ваших данных без дорогостоящего fine-tuning. Проект:{' '}
+            <a
+              href="https://axioma8.ru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-ifi-lime underline decoration-ifi-lime/40 underline-offset-2 hover:decoration-ifi-lime"
+            >
+              axioma8.ru
+            </a>
+            .
+          </p>
+          <motion.a
+            href="https://axioma8.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-ifi-border bg-mineshaft-900/60 px-5 py-2.5 text-sm font-semibold text-ifi-fg backdrop-blur-sm transition-colors hover:border-ifi-lime/35 hover:bg-mineshaft-800/70"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <Cpu className="w-6 h-6 text-blue-500" />
-              <span className="text-blue-500 font-mono text-sm tracking-wider">CASE_03</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500">
-                Корпоративная RAG-платформа
-              </span>
-            </h2>
-            <p className="text-gray-400 text-lg max-w-3xl">
-              Масштабируемая AI-система анализа отзывов и корпоративных данных на базе современных LLM. 
-              Использование RAG-архитектуры позволяет системе рассуждать на основе актуальных знаний без дорогостоящего fine-tuning.
-            </p>
-          </motion.div>
+            Сайт проекта
+            <ExternalLink className="h-4 w-4 text-ifi-lime" />
+          </motion.a>
+        </motion.div>
 
-          {/* Key features */}
-          <div className="grid sm:grid-cols-2 gap-4 mb-8">
-            {keyFeatures.map((feature, index) => (
+        <div className="mb-8 grid gap-4 sm:grid-cols-2">
+          {keyFeatures.map((feature, index) => (
+            <div
+              key={index}
+              className="group rounded-2xl border border-ifi-border bg-mineshaft-900/55 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-ifi-lime/20 hover:shadow-md"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ifi-lime/12 ring-1 ring-ifi-lime/20 transition-transform duration-300 group-hover:scale-110">
+                  <feature.icon className={`h-5 w-5 ${feature.color}`} />
+                </div>
+                <span className="text-mineshaft-300">{feature.text}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-8"
+        >
+          <h3 className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-ifi-fg">
+            <div className="h-6 w-1 rounded-full bg-gradient-to-b from-ifi-lime to-cyan-600/80" />
+            Технологический стек
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {techStack.map((item, index) => (
               <div
                 key={index}
-                className="bg-[#0a0a0a] border-2 border-blue-500/20 rounded-lg p-5 hover:border-blue-500/50 transition-all duration-300 group"
+                className="rounded-xl border border-ifi-border bg-mineshaft-900/50 p-4 shadow-sm transition-all duration-300 hover:border-ifi-lime/25"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className={`w-5 h-5 ${feature.color}`} />
-                  </div>
-                  <span className="text-gray-300">{feature.text}</span>
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="font-mono text-sm text-mineshaft-400">{item.label}</span>
+                  <div className="h-2 w-2 rounded-full bg-ifi-lime/90 shadow-[0_0_8px_rgba(224,237,52,0.35)]" />
+                </div>
+                <div className={`bg-gradient-to-r bg-clip-text text-base font-bold text-transparent ${item.color}`}>
+                  {item.value}
                 </div>
               </div>
             ))}
           </div>
+        </motion.div>
 
-          {/* Tech stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-indigo-500" />
-              Технологический стек
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {techStack.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-[#0a0a0a] border border-blue-500/20 rounded-lg p-4 hover:border-blue-500/50 transition-all duration-300"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-500 text-sm font-mono">{item.label}</span>
-                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                  </div>
-                  <div className={`text-base font-bold text-transparent bg-clip-text bg-gradient-to-r ${item.color}`}>
-                    {item.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Expandable details */}
-          <motion.div
+        <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="bg-[#0a0a0a] border-2 border-blue-500/30 rounded-xl overflow-hidden">
-              <button
-                onClick={() => setExpanded(!expanded)}
-                className="w-full p-6 flex items-center justify-between text-left group hover:bg-blue-500/5 transition-colors duration-300"
-              >
-                <div className="flex items-center gap-3">
-                  <Zap className="w-6 h-6 text-blue-500" />
-                  <span className="text-xl font-bold text-white">Архитектура и реализация</span>
-                </div>
-                <div className="text-blue-500">
-                  {expanded ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                </div>
-              </button>
+        >
+          <div className="overflow-hidden rounded-2xl border border-ifi-border bg-mineshaft-900/60 shadow-sm backdrop-blur-sm">
+            <button
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              className="group flex w-full items-center justify-between p-6 text-left transition-colors duration-300 hover:bg-mineshaft-800/60"
+            >
+              <div className="flex items-center gap-3">
+                <Zap className="h-6 w-6 text-ifi-lime" />
+                <span className="text-xl font-bold text-ifi-fg">Архитектура и реализация</span>
+              </div>
+              <div className="text-ifi-lime">
+                {expanded ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+              </div>
+            </button>
 
-              <AnimatePresence>
-                {expanded && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="border-t-2 border-blue-500/30"
-                  >
-                    <div className="p-6 space-y-8">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        {/* Problem */}
-                        <div>
-                          <h4 className="text-blue-500 font-semibold mb-3 flex items-center gap-2">
-                            <Target className="w-4 h-4" /> Вызовы
-                          </h4>
-                          <ul className="space-y-2">
-                            {expandedDetails.problem.map((item, i) => (
-                              <li key={i} className="text-gray-300 flex items-start gap-2">
-                                <span className="text-blue-500 mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Solution */}
-                        <div>
-                          <h4 className="text-blue-500 font-semibold mb-3 flex items-center gap-2">
-                            <Server className="w-4 h-4" /> Техническая реализация
-                          </h4>
-                          <ul className="space-y-2">
-                            {expandedDetails.solution.map((item, i) => (
-                              <li key={i} className="text-gray-300 flex items-start gap-2">
-                                <span className="text-blue-500 mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+            <AnimatePresence>
+              {expanded && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="border-t border-ifi-border/60"
+                >
+                  <div className="space-y-8 p-6">
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div>
+                        <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
+                          <Target className="h-4 w-4 text-ifi-lime" /> Вызовы
+                        </h4>
+                        <ul className="space-y-2">
+                          {expandedDetails.problem.map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-mineshaft-400">
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ifi-lime/90" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
-                      {/* Results */}
                       <div>
-                        <h4 className="text-blue-500 font-semibold mb-4 flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4" /> Бизнес-эффект
+                        <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
+                          <Server className="h-4 w-4 text-ifi-lime" /> Техническая реализация
                         </h4>
-                        <div className="grid sm:grid-cols-3 gap-4">
-                          {expandedDetails.results.map((result, i) => (
-                            <div key={i} className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
-                              <p className="text-xs text-blue-500 mb-1 font-mono uppercase tracking-wider">{result.label}</p>
-                              <p className="text-2xl font-bold text-white mb-1">{result.value}</p>
-                              <p className="text-xs text-gray-400">{result.desc}</p>
-                            </div>
+                        <ul className="space-y-2">
+                          {expandedDetails.solution.map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-mineshaft-400">
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ifi-lime/90" />
+                              <span>{item}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
 
-          {/* Bottom highlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-8 relative border-l-4 border-blue-500 bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-r"
-          >
-            <p className="text-gray-300 leading-relaxed">
-              Вместо обучения модели — <span className="text-blue-500 font-semibold">обучение архитектуры</span>. 
-              Использование <span className="text-blue-400">RabbitMQ</span> для очередей и <span className="text-blue-400">Qdrant</span> для векторного поиска обеспечивает горизонтальное масштабирование и отказоустойчивость системы.
-            </p>
-          </motion.div>
-        </div>
+                    <div>
+                      <h4 className="mb-4 flex items-center gap-2 font-semibold text-ifi-fg">
+                        <TrendingUp className="h-4 w-4 text-ifi-lime" /> Бизнес-эффект
+                      </h4>
+                      <div className="grid gap-4 sm:grid-cols-3">
+                        {expandedDetails.results.map((result, i) => (
+                          <div
+                            key={i}
+                            className="rounded-xl border border-ifi-border bg-mineshaft-900/50 p-4"
+                          >
+                            <p className="mb-1 font-mono text-xs uppercase tracking-wider text-ifi-lime/90">
+                              {result.label}
+                            </p>
+                            <p className="mb-1 text-2xl font-bold text-ifi-fg">{result.value}</p>
+                            <p className="text-xs text-mineshaft-400">{result.desc}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="relative mt-8 overflow-hidden rounded-r-xl border border-ifi-border border-l-4 border-l-ifi-lime bg-mineshaft-900/55 p-6 backdrop-blur-sm"
+        >
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_0%_50%,rgba(224,237,52,0.07),transparent_65%)]"
+            aria-hidden
+          />
+          <p className="relative leading-relaxed text-mineshaft-400">
+            Вместо обучения модели —{' '}
+            <span className="font-semibold text-ifi-fg">обучение архитектуры</span>. Использование{' '}
+            <span className="text-cyan-400/95">RabbitMQ</span> для очередей и{' '}
+            <span className="text-cyan-400/95">Qdrant</span> для векторного поиска обеспечивает горизонтальное
+            масштабирование и отказоустойчивость системы.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

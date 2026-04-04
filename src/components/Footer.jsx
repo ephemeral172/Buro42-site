@@ -1,49 +1,91 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Send, Code } from 'lucide-react';
+
+const product = [
+  { href: '#platform', label: 'Платформа' },
+  { href: '#integrations', label: 'Интеграции' },
+  { href: '#cases', label: 'Кейсы' },
+];
+
+const company = [{ href: '#contact', label: 'Контакты' }];
 
 export default function Footer() {
   return (
-    <footer className="relative py-16 px-4 border-t border-orange-500/20 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto">
+    <footer className="border-t border-ifi-border bg-ifi-bg text-mineshaft-200">
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-2"
+          >
+            <p className="font-display text-lg font-semibold tracking-tight text-ifi-fg">Buro42</p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ifi-label">
+              Бюро разработки IT‑продуктов для крупного бизнеса: AI, данные, ML и интеграции в вашем
+              контуре.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">Разделы</p>
+            <ul className="mt-4 space-y-2">
+              {product.map((item, i) => (
+                <motion.li
+                  key={item.href}
+                  initial={{ opacity: 0, x: -6 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.08 + i * 0.05 }}
+                >
+                  <motion.a
+                    href={item.href}
+                    className="text-sm text-ifi-label transition hover:text-ifi-fg"
+                    whileHover={{ x: 3 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 24 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">Связь</p>
+            <ul className="mt-4 space-y-2">
+              {company.map((item) => (
+                <li key={item.label}>
+                  <motion.a
+                    href={item.href}
+                    className="text-sm text-ifi-label transition hover:text-ifi-fg"
+                    whileHover={{ x: 3 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 24 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-8"
+          transition={{ delay: 0.15 }}
+          className="mt-14 border-t border-ifi-border pt-8 text-center text-sm text-ifi-muted"
         >
-          {/* Contact buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="tel:+79309917433"
-              className="inline-flex items-center gap-2 bg-[#1a1a1a] border-2 border-orange-500 text-white px-6 py-3 rounded-full font-light hover:scale-105 transition-transform duration-300"
-            >
-              <Phone className="w-5 h-5" /> +7-930-991-74-33
-            </a>
-            <a
-              href="https://t.me/Drakedog_ee"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#1a1a1a] border-2 border-orange-500 text-white px-6 py-3 rounded-full font-light hover:scale-105 transition-transform duration-300"
-            >
-              <Send className="w-5 h-5" /> @Drakedog_ee
-            </a>
-            <a
-              href="https://github.com/Fullfaq-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#1a1a1a] border-2 border-orange-500 text-white px-6 py-3 rounded-full font-light hover:scale-105 transition-transform duration-300"
-            >
-              <Code className="w-5 h-5" /> GitHub
-            </a>
-          </div>
-
-          {/* Copyright */}
-          <p className="text-gray-400 font-mono text-sm">
-            © 2026 — AI & Web Development{' '}
-            <span className="text-orange-500 font-semibold">Fullfaq Team</span>
-          </p>
+          © {new Date().getFullYear()} Buro42
         </motion.div>
       </div>
     </footer>

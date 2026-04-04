@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
 import { Eraser, Pencil, Trash2, Map as MapIcon, Loader2 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
@@ -300,13 +299,15 @@ export default function InteractiveBoard() {
   }, [paths]);
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden border-t border-orange-500/30">
+    <section className="relative py-20 overflow-hidden border-t border-ifi-border">
       <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-4xl font-bold text-white mb-4 text-center">
-          <span className="text-orange-500">Общая</span> Неоновая Доска
+        <h2 className="text-4xl font-bold text-ifi-fg mb-4 text-center tracking-tight">
+          <span className="text-blue-600">Совместная</span> доска
         </h2>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto">
-          Рисуйте вместе с другими пользователями в реальном времени! Используйте <kbd className="px-2 py-1 bg-gray-800 rounded text-xs text-orange-400">Alt + Drag</kbd> для перемещения.
+        <p className="text-mineshaft-400 text-center max-w-2xl mx-auto">
+          Рисуйте вместе с другими пользователями в реальном времени. Используйте{' '}
+          <kbd className="px-2 py-1 bg-mineshaft-800 border border-ifi-border rounded text-xs text-ifi-fg">Alt + Drag</kbd> для
+          перемещения холста.
         </p>
         {!isSupabaseConfigured && (
           <div className="mt-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm text-center max-w-md mx-auto">
@@ -317,58 +318,61 @@ export default function InteractiveBoard() {
 
       <div className="relative group" ref={containerRef}>
         {isLoading && (
-          <div className="absolute inset-0 z-30 bg-black/60 backdrop-blur-sm flex items-center justify-center">
+          <div className="absolute inset-0 z-30 bg-mineshaft-900/75 backdrop-blur-sm flex items-center justify-center">
             <div className="flex flex-col items-center gap-3">
-              <Loader2 className="text-orange-500 animate-spin" size={40} />
-              <span className="text-white/60 text-sm uppercase tracking-widest">Загрузка доски...</span>
+              <Loader2 className="text-blue-600 animate-spin" size={40} />
+              <span className="text-mineshaft-400 text-sm uppercase tracking-widest">Загрузка доски...</span>
             </div>
           </div>
         )}
 
         {/* Controls */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 bg-black/90 backdrop-blur-xl p-3 rounded-2xl border border-white/10 shadow-2xl">
-          <div className="flex gap-1 bg-white/5 p-1 rounded-xl">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 bg-mineshaft-800/95 backdrop-blur-xl p-3 rounded-2xl border border-ifi-border shadow-lg">
+          <div className="flex gap-1 bg-mineshaft-800 p-1 rounded-xl">
             <button
+              type="button"
               onClick={() => setTool('pen')}
-              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'pen' ? 'bg-orange-500 text-white shadow-[0_0_15px_rgba(249,115,22,0.5)]' : 'text-white/50 hover:text-white'}`}
+              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'pen' ? 'bg-blue-600 text-white shadow-md' : 'text-mineshaft-400 hover:text-ifi-fg'}`}
               title="Маркер (B)"
             >
               <Pencil size={20} />
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-white/10">B</span>
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-mineshaft-600 z-30">B</span>
             </button>
             <button
+              type="button"
               onClick={() => setTool('eraser')}
-              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'eraser' ? 'bg-orange-500 text-white shadow-[0_0_15px_rgba(249,115,22,0.5)]' : 'text-white/50 hover:text-white'}`}
+              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'eraser' ? 'bg-blue-600 text-white shadow-md' : 'text-mineshaft-400 hover:text-ifi-fg'}`}
               title="Ластик (E)"
             >
               <Eraser size={20} />
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-white/10">E</span>
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-mineshaft-600 z-30">E</span>
             </button>
             <button
+              type="button"
               onClick={() => setTool('pan')}
-              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'pan' ? 'bg-orange-500 text-white shadow-[0_0_15px_rgba(249,115,22,0.5)]' : 'text-white/50 hover:text-white'}`}
+              className={`p-2 rounded-lg transition-all relative group/btn ${tool === 'pan' ? 'bg-blue-600 text-white shadow-md' : 'text-mineshaft-400 hover:text-ifi-fg'}`}
               title="Перемещение (M)"
             >
               <MapIcon size={20} />
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-white/10">M</span>
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover/btn:opacity-100 transition-opacity border border-mineshaft-600 z-30">M</span>
             </button>
           </div>
 
-          <div className="w-px h-8 bg-white/10" />
+          <div className="w-px h-8 bg-ifi-border" />
 
           <div className="flex gap-2">
             {COLORS.map((c) => (
               <button
                 key={c.name}
                 onClick={() => { setColor(c); setTool('pen'); }}
-                className={`w-8 h-8 rounded-full transition-all ${color.value === c.value && tool === 'pen' ? 'scale-125 ring-2 ring-white shadow-lg' : 'hover:scale-110 opacity-70 hover:opacity-100'}`}
+                className={`w-8 h-8 rounded-full transition-all ${color.value === c.value && tool === 'pen' ? 'scale-125 ring-2 ring-blue-600 shadow-lg' : 'hover:scale-110 opacity-70 hover:opacity-100'}`}
                 style={{ backgroundColor: c.value, boxShadow: c.shadow }}
                 title={c.name}
               />
             ))}
           </div>
 
-          <div className="w-px h-8 bg-white/10" />
+          <div className="w-px h-8 bg-ifi-border" />
 
           <button
             onClick={clearMyPaths}
@@ -381,13 +385,13 @@ export default function InteractiveBoard() {
         </div>
 
         {/* Mini-map */}
-        <div className="absolute bottom-6 left-6 z-20 w-48 h-32 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-2xl pointer-events-none">
-          <div className="absolute top-2 left-2 text-[10px] text-white/40 uppercase font-bold tracking-widest flex items-center gap-1">
+        <div className="absolute bottom-6 left-6 z-20 w-48 h-32 bg-mineshaft-800/95 backdrop-blur-md border border-ifi-border rounded-xl overflow-hidden shadow-lg pointer-events-none">
+          <div className="absolute top-2 left-2 text-[10px] text-mineshaft-400 uppercase font-bold tracking-widest flex items-center gap-1">
             <MapIcon size={10} /> Навигация
           </div>
           <div className="relative w-full h-full p-4">
             <div 
-              className="absolute border border-orange-500/50 bg-orange-500/5 transition-all"
+              className="absolute border border-blue-500/70 bg-blue-500/10 transition-all"
               style={{
                 left: `${(( -offset.x - mapBounds.minX) / (mapBounds.maxX - mapBounds.minX)) * 100}%`,
                 top: `${(( -offset.y - mapBounds.minY) / (mapBounds.maxY - mapBounds.minY)) * 100}%`,
@@ -411,7 +415,7 @@ export default function InteractiveBoard() {
 
         {/* Canvas Container */}
         <div 
-          className={`relative w-full h-[600px] bg-[#050505] overflow-hidden ${
+          className={`relative w-full h-[600px] bg-slate-900 overflow-hidden rounded-xl border border-mineshaft-600 ${
             tool === 'pan' ? 'cursor-grab active:cursor-grabbing' : 'cursor-crosshair'
           }`}
           onMouseDown={startDrawing}
@@ -436,7 +440,7 @@ export default function InteractiveBoard() {
             className="absolute inset-0"
           />
 
-          <div className="absolute bottom-4 right-4 pointer-events-none text-[10px] text-white/30 uppercase tracking-widest font-mono">
+          <div className="absolute bottom-4 right-4 pointer-events-none text-[10px] text-mineshaft-400 uppercase tracking-widest font-mono">
             X: {Math.round(-offset.x)} Y: {Math.round(-offset.y)}
           </div>
         </div>

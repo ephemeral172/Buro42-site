@@ -1,55 +1,43 @@
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-ifi-bg">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
-        
         :root {
-          --color-primary: #ff6b00;
-          --color-secondary: #00ffff;
-          --color-bg: #0a0a0a;
+          --color-accent: #e0ed34;
+          --color-bg: #19191c;
         }
-        
+
         * {
           scrollbar-width: thin;
-          scrollbar-color: #ff6b00 #1a1a1a;
+          scrollbar-color: #2d2f33 #19191c;
         }
-        
+
         *::-webkit-scrollbar {
-          width: 6px;
+          width: 8px;
         }
-        
+
         *::-webkit-scrollbar-track {
-          background: #1a1a1a;
+          background: #19191c;
         }
-        
+
         *::-webkit-scrollbar-thumb {
-          background: #ff6b00;
-          border-radius: 3px;
+          background: #323439;
+          border-radius: 4px;
         }
-        
+
         html {
           scroll-behavior: smooth;
         }
 
         body {
-          font-family: 'JetBrains Mono', monospace;
-          background: #0a0a0a;
-        }
-        
-        ::selection {
-          background: rgba(255, 107, 0, 0.3);
-          color: white;
+          font-family: 'Inter', system-ui, sans-serif;
+          background: #19191c;
         }
 
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
+        ::selection {
+          background: rgba(224, 237, 52, 0.35);
+          color: #111419;
         }
       `}</style>
       {children}

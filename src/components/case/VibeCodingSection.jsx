@@ -1,151 +1,107 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Clock, Shield, TrendingUp, Code } from 'lucide-react';
+import { Zap, Clock, Shield, Code } from 'lucide-react';
 
 const benefits = [
   {
     icon: Zap,
-    title: 'Быстрая проверка идей',
-    description: 'Используем подход Vibe Coding для быстрой проверки идей и гипотез.',
+    title: 'Быстрая проверка гипотез',
+    description:
+      'Итеративная разработка и AI-инструменты ускоряют пилоты при сохранении архитектурного контроля.',
   },
   {
     icon: Clock,
-    title: 'Часы, не недели',
-    description: 'Это позволяет запускать рабочие приложения за часы, а не недели.',
+    title: 'Короткий цикл обратной связи',
+    description:
+      'Рабочие инкременты для согласования с бизнесом и ИБ — особенно важно в enterprise.',
   },
   {
     icon: Code,
-    title: 'ИИ как ускоритель',
-    description: 'ИИ применяется для ускорения написания кода и генерации решений.',
+    title: 'Современный стек',
+    description:
+      'Типизированные кодовые базы, автоматизация и воспроизводимые сборки для долгой эксплуатации.',
   },
   {
     icon: Shield,
-    title: 'Полный контроль',
-    description: 'Архитектура, логика безопасности и критические части всегда под нашим контролем.',
+    title: 'Контроль и качество',
+    description:
+      'Критичные участки, безопасность и соответствие требованиям заказчика — в фокусе на каждом этапе.',
   },
 ];
 
 export default function VibeCodingSection() {
   return (
-    <section className="relative py-32 px-4 bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+    <section className="relative py-24 md:py-28 px-4 bg-mineshaft-900/30">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-14 text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500" />
-            <span className="text-orange-500 font-mono text-sm tracking-wider">METHODOLOGY</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500" />
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
+            <span className="text-blue-600 font-mono text-xs uppercase tracking-[0.2em]">
+              Подход
+            </span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
           </div>
-          <p className="text-2xl text-orange-500 font-mono">VIBE CODING</p>
+          <p className="text-2xl font-semibold text-ifi-fg tracking-tight">
+            Скорость без потери дисциплины
+          </p>
         </motion.div>
 
-        {/* Benefits grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-12% 0px' }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={{ y: -2 }}
+              className="relative group rounded-2xl border border-ifi-border bg-ifi-card p-6 shadow-sm transition-shadow hover:shadow-md hover:border-mineshaft-600"
             >
-              {/* Background glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-orange-500/5 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-500 rounded-t-2xl scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
 
-              {/* Card */}
-              <div className="relative h-full bg-[#1a1a1a] border border-orange-500/30 rounded-lg p-6 overflow-hidden group-hover:border-orange-500 transition-all duration-300">
-                {/* Top accent line */}
-                <motion.div
-                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-600 to-orange-500"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                />
-
-                {/* Icon */}
-                <div className="mb-4 relative">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-600 to-orange-500 flex items-center justify-center">
-                    <benefit.icon className="w-6 h-6 text-white" />
-                  </div>
-                  {/* Pulsing effect */}
-                  <motion.div
-                    className="absolute inset-0 w-12 h-12 rounded-lg bg-orange-500/30"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.5, 0, 0.5],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: index * 0.2,
-                    }}
-                  />
+              <div className="mb-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center">
+                  <benefit.icon className="w-6 h-6 text-white" />
                 </div>
-
-                {/* Content */}
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
-
-                {/* Corner decorations */}
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-orange-500/20 group-hover:border-orange-500/50 transition-colors duration-300" />
               </div>
+
+              <h3 className="text-lg font-semibold text-ifi-fg mb-2 tracking-tight">
+                {benefit.title}
+              </h3>
+              <p className="text-mineshaft-400 text-sm leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom highlight */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mt-14 max-w-2xl px-2 text-center"
         >
-          <div className="inline-block bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500 rounded-lg px-8 py-4">
-            <p className="text-orange-500 font-mono text-sm mb-1">РЕЗУЛЬТАТ</p>
-            <p className="text-white text-lg font-semibold">
-              Быстрый запуск качественных продуктов
+          <div className="relative overflow-hidden rounded-md border border-ifi-border bg-gradient-to-b from-mineshaft-800/55 to-mineshaft-900/90 px-8 py-6 shadow-[inset_0_1px_0_0_rgba(224,237,52,0.06),0_-24px_72px_-28px_rgba(0,0,0,0.45)]">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_45%_at_50%_-10%,rgba(224,237,52,0.09),transparent_58%)]"
+              aria-hidden
+            />
+            <p className="relative font-mono text-xs uppercase tracking-[0.18em] text-ifi-lime">Итог</p>
+            <p className="relative mt-2 text-base font-semibold tracking-tight text-ifi-fg">
+              Предсказуемые сроки пилотов и прозрачный путь к промышленному запуску
             </p>
           </div>
         </motion.div>
       </div>
-
-      {/* Animated background circles */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full border border-orange-500/10"
-          style={{
-            width: 200 + i * 150,
-            height: 200 + i * 150,
-            top: '50%',
-            left: '50%',
-            x: '-50%',
-            y: '-50%',
-          }}
-          animate={{
-            rotate: 360,
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            rotate: { duration: 20 + i * 10, repeat: Infinity, ease: 'linear' },
-            scale: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-          }}
-        />
-      ))}
     </section>
   );
 }
