@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import BrandMark from '@/components/landing/BrandMark';
+import ObfuscatedEmailLink from '@/components/landing/ObfuscatedEmailLink';
 
 const product = [
   { href: '#platform', label: 'Платформа' },
@@ -21,7 +23,9 @@ export default function Footer() {
             transition={{ duration: 0.4 }}
             className="lg:col-span-2"
           >
-            <p className="font-display text-lg font-semibold tracking-tight text-ifi-fg">Buro42</p>
+            <p className="text-lg font-semibold tracking-tight text-ifi-fg">
+              <BrandMark />
+            </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ifi-label">
               Бюро разработки IT‑продуктов для крупного бизнеса: AI, данные, ML и интеграции в вашем
               контуре.
@@ -75,6 +79,9 @@ export default function Footer() {
                   </motion.a>
                 </li>
               ))}
+              <li className="pt-2">
+                <ObfuscatedEmailLink />
+              </li>
             </ul>
           </motion.div>
         </div>

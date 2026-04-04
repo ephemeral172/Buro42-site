@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import BrandMark from '@/components/landing/BrandMark';
 
 const links = [
   { href: '#platform', label: 'Платформа' },
@@ -13,9 +14,12 @@ export default function SiteNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ifi-border/80 bg-ifi-bg/75 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#" className="font-display text-lg font-semibold tracking-tight text-ifi-fg">
-          Buro42
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 py-3 md:py-3.5">
+        <a
+          href="#"
+          className="text-xl font-semibold tracking-tight text-ifi-fg md:text-2xl"
+        >
+          <BrandMark />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Основное меню">

@@ -19,6 +19,7 @@ import SEOMagicSection from '../components/case/SEOMagicSection';
 import RAGPlatformSection from '../components/case/RAGPlatformSection';
 import NutritionAppSection from '../components/case/NutritionAppSection';
 import RunaAISection from '../components/case/RunaAISection';
+import FinalCta from '../components/landing/FinalCta';
 import Footer from '../components/Footer';
 import InfisicalPageShell from '../components/infisical-shell/InfisicalPageShell';
 
@@ -74,6 +75,7 @@ export default function Home() {
         </div>
         <NutritionAppSection />
         <RunaAISection />
+        <FinalCta />
         <Footer />
       </div>
     </InfisicalPageShell>

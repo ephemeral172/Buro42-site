@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { AnimatedLimeDot } from '@/components/landing/AnimatedLimeDot';
+import PillarMotionArt from '@/components/landing/PillarMotionArt';
+
 function PillarPanel({ items }) {
   return (
     <motion.div
@@ -121,7 +123,11 @@ export default function ProductPillars() {
           transition={{ duration: 0.45 }}
           className="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center md:gap-16 md:py-24 lg:gap-20"
         >
-          <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+          <div
+            className={`relative min-h-[280px] md:min-h-[300px] ${index % 2 === 1 ? 'md:order-2' : ''}`}
+          >
+            <PillarMotionArt variant={block.id} />
+            <div className="relative z-10">
             <h2 className="text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">{block.title}</h2>
             <p className="mt-5 text-lg leading-relaxed text-mineshaft-400">{block.body}</p>
             <div className="mt-8 flex flex-wrap items-center gap-6">
@@ -141,6 +147,7 @@ export default function ProductPillars() {
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               ) : null}
+            </div>
             </div>
           </div>
           <div className={index % 2 === 1 ? 'md:order-1' : ''}>

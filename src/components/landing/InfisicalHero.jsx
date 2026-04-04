@@ -65,23 +65,23 @@ export default function InfisicalHero() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_55%_36%_at_50%_14%,rgba(224,237,52,0.08),transparent_56%)]" />
 
       <motion.div
-        className="relative z-10 mx-auto max-w-5xl px-4 pb-20 pt-14 text-center md:pb-28 md:pt-20"
+        className="relative z-10 mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:pt-24 md:pb-28 md:pt-32 lg:pt-36"
         variants={blockVariants}
         initial="hidden"
         animate="show"
       >
         <motion.h1
           variants={h1Variants}
-          className="font-display text-balance text-display-sm font-black tracking-tight sm:text-display md:text-display lg:text-display-lg xl:text-display-xl"
+          className="font-display text-balance text-display-sm font-black tracking-tight sm:text-display md:text-display lg:text-display-lg xl:text-display-xl 2xl:text-display-2xl"
         >
           <motion.span variants={fadeUpBlur(reduceMotion)} className="block text-ifi-fg">
-            AI, данные и ML для крупного бизнеса —
+            AI, данные и ML для крупного бизнеса
           </motion.span>
           <motion.span
             variants={fadeUpBlur(reduceMotion)}
             className="mt-2 block bg-gradient-to-r from-ifi-lime via-[#ecf26d] to-[#63b0bd] bg-clip-text pb-0.5 text-transparent md:mt-3"
           >
-            от пилота до продакшена.
+            от пилота до продакшена
           </motion.span>
         </motion.h1>
 

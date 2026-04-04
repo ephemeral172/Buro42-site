@@ -9,16 +9,18 @@ module.exports = {
   		},
   		fontFamily: {
   			sans: ['Roboto', 'system-ui', 'sans-serif'],
-  			/** Заголовки маркетинга — тот же Roboto, плотнее трекинг через утилиты */
   			display: ['Roboto', 'system-ui', 'sans-serif'],
+  			/** Только логотип Buro42 в шапке и подвале */
+  			brand: ['Unbounded', 'Roboto', 'system-ui', 'sans-serif'],
   			mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
   		},
   		fontSize: {
-  			/** Герой: заметно крупнее базовая ступень и верх clamp */
-  			'display-sm': ['3rem', { lineHeight: '1.08', letterSpacing: '-0.022em' }],
-  			display: ['clamp(3.125rem,6.75vw+1.25rem,4.875rem)', { lineHeight: '1.05', letterSpacing: '-0.024em' }],
-  			'display-lg': ['clamp(3.875rem,7.5vw+1.15rem,5.5rem)', { lineHeight: '1.03', letterSpacing: '-0.03em' }],
-  			'display-xl': ['clamp(4.25rem,6vw+1.75rem,5.875rem)', { lineHeight: '1.02', letterSpacing: '-0.032em' }],
+  			/** Герой h1 — крупная шкала */
+  			'display-sm': ['3.375rem', { lineHeight: '1.06', letterSpacing: '-0.024em' }],
+  			display: ['clamp(3.5rem,7.25vw+1.35rem,5.35rem)', { lineHeight: '1.04', letterSpacing: '-0.026em' }],
+  			'display-lg': ['clamp(4.25rem,8vw+1.2rem,6rem)', { lineHeight: '1.025', letterSpacing: '-0.03em' }],
+  			'display-xl': ['clamp(4.75rem,7vw+1.85rem,6.65rem)', { lineHeight: '1.02', letterSpacing: '-0.032em' }],
+  			'display-2xl': ['clamp(5.35rem,5.5vw+2.25rem,7.15rem)', { lineHeight: '1.01', letterSpacing: '-0.034em' }],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -149,6 +151,10 @@ module.exports = {
   				from: { transform: 'rotate(0deg)' },
   				to: { transform: 'rotate(360deg)' },
   			},
+  			'brand-shimmer': {
+  				'0%, 100%': { backgroundPosition: '0% 50%' },
+  				'50%': { backgroundPosition: '100% 50%' },
+  			},
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -156,6 +162,7 @@ module.exports = {
   			marquee: 'marquee var(--duration, 40s) linear infinite',
   			/* Infisical marketing: careers hero neon-loops */
   			slowRotate: 'slowRotate 100s linear infinite',
+  			'brand-shimmer': 'brand-shimmer 3.2s ease-in-out infinite',
   		}
   	}
   },
