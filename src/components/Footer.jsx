@@ -26,6 +26,9 @@ export default function Footer() {
             <p className="text-lg font-semibold tracking-tight text-ifi-fg">
               <BrandMark />
             </p>
+            <p className="mt-2 text-sm font-medium leading-snug text-mineshaft-300">
+              Лаборатория данных и искусственного интеллекта
+            </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ifi-label">
               Бюро разработки IT‑продуктов для крупного бизнеса: AI, данные, ML и интеграции в вашем
               контуре.
