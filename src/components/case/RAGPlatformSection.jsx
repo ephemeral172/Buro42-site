@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   Brain,
   Database,
@@ -15,43 +16,54 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
+const featureMeta = [
+  { icon: Brain, color: 'text-blue-500' },
+  { icon: Database, color: 'text-cyan-500' },
+  { icon: Workflow, color: 'text-indigo-500' },
+  { icon: Shield, color: 'text-ifi-lime' },
+];
+
+const stackGradients = [
+  'from-blue-500 to-indigo-500',
+  'from-cyan-500 to-blue-500',
+  'from-orange-500 to-red-500',
+  'from-ifi-lime to-ifi-info',
+];
+
 export default function RAGPlatformSection() {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
-  const keyFeatures = [
-    { icon: Brain, text: 'Контекстное reasoning вместо fine-tuning', color: 'text-blue-500' },
-    { icon: Database, text: 'Векторные БД (Qdrant/Weaviate) и семантический поиск', color: 'text-cyan-500' },
-    { icon: Workflow, text: 'Асинхронная обработка через RabbitMQ', color: 'text-indigo-500' },
-    { icon: Shield, text: 'Полный контроль над данными (On-prem/Private Cloud)', color: 'text-ifi-lime' },
-  ];
+  const keyFeatures = useMemo(() => {
+    const texts = t('rag.features', { returnObjects: true });
+    return texts.map((text, i) => ({
+      text,
+      ...featureMeta[i],
+    }));
+  }, [t]);
 
-  const techStack = [
-    { label: 'AI / ML', value: 'Claude Opus, Gemini 3, GPT 5.2 Pro, Llama 3.1, Mistral Large', color: 'from-blue-500 to-indigo-500' },
-    { label: 'Vector Storage', value: 'Qdrant / Weaviate / PGVector', color: 'from-cyan-500 to-blue-500' },
-    { label: 'Message Broker', value: 'RabbitMQ (Celery/Aio-pika)', color: 'from-orange-500 to-red-500' },
-    { label: 'Infrastructure', value: 'FastAPI, Docker', color: 'from-ifi-lime to-ifi-info' },
-  ];
+  const techStack = useMemo(() => {
+    const raw = t('rag.stack', { returnObjects: true });
+    return raw.map((row, i) => ({
+      ...row,
+      color: stackGradients[i] ?? 'from-blue-500 to-indigo-500',
+    }));
+  }, [t]);
 
-  const expandedDetails = {
-    problem: [
-      'Высокая стоимость GPU-инфраструктуры при классическом fine-tuning',
-      'Сложность поддержки и обновлений обученных моделей (необходимость переобучения при смене данных)',
-      'Слабая адаптация к изменяющимся бизнес-правилам и "галлюцинации" моделей',
-      'Зависимость от вендоров (Vendor lock-in) и риски безопасности данных',
-    ],
-    solution: [
-      'Разделение на слои: Reasoning (LLM), Knowledge (Vector DB), Orchestration (RabbitMQ)',
-      'Semantic Chunking: умное разбиение документов для сохранения контекста',
-      'Hybrid Search: сочетание векторного и полнотекстового поиска для максимальной точности',
-      'Асинхронный пайплайн обработки тяжелых документов через брокеры сообщений',
-      'Гибкая система промпт-сценариев с версионированием логики',
-    ],
-    results: [
-      { label: 'Экономия', value: '33%', desc: 'Снижение годовой стоимости владения' },
-      { label: 'Адаптация', value: 'Мгновенно', desc: 'Обновление логики без переобучения' },
-      { label: 'Масштаб', value: '1000+', desc: 'Анализ отзывов и документов в сутки' },
-    ],
-  };
+  const expandedDetails = useMemo(() => {
+    const labels = t('rag.effectLabels', { returnObjects: true });
+    const values = t('rag.effectValues', { returnObjects: true });
+    const descs = t('rag.effectDescs', { returnObjects: true });
+    return {
+      problem: t('rag.problems', { returnObjects: true }),
+      solution: t('rag.solutions', { returnObjects: true }),
+      results: labels.map((label, i) => ({
+        label,
+        value: values[i],
+        desc: descs[i],
+      })),
+    };
+  }, [t]);
 
   return (
     <section className="relative px-4 py-20 md:py-24">
@@ -65,15 +77,11 @@ export default function RAGPlatformSection() {
         >
           <div className="mb-4 flex items-center gap-4">
             <Cpu className="h-6 w-6 text-ifi-lime" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">Кейс</span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">{t('commonUi.caseBadge')}</span>
           </div>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-ifi-fg lg:text-5xl">
-            Корпоративная RAG-платформа
-          </h2>
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-ifi-fg lg:text-5xl">{t('rag.title')}</h2>
           <p className="max-w-3xl text-lg text-mineshaft-400">
-            Платформа для работы со структурированными и неструктурированными большими данными на базе ИИ — в одном
-            масштабируемом корпоративном решении. RAG-архитектура позволяет опираться на актуальные знания и
-            рассуждать в контексте ваших данных без дорогостоящего fine-tuning. Проект:{' '}
+            {t('rag.introBefore')}{' '}
             <a
               href="https://axioma8.ru"
               target="_blank"
@@ -82,7 +90,7 @@ export default function RAGPlatformSection() {
             >
               axioma8.ru
             </a>
-            .
+            {t('rag.introAfter')}
           </p>
           <motion.a
             href="https://axioma8.ru"
@@ -94,7 +102,7 @@ export default function RAGPlatformSection() {
             transition={{ duration: 0.4, delay: 0.08 }}
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-ifi-border bg-mineshaft-900/60 px-5 py-2.5 text-sm font-semibold text-ifi-fg backdrop-blur-sm transition-colors hover:border-ifi-lime/35 hover:bg-mineshaft-800/70"
           >
-            Сайт проекта
+            {t('rag.cta')}
             <ExternalLink className="h-4 w-4 text-ifi-lime" />
           </motion.a>
         </motion.div>
@@ -124,7 +132,7 @@ export default function RAGPlatformSection() {
         >
           <h3 className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-ifi-fg">
             <div className="h-6 w-1 rounded-full bg-gradient-to-b from-ifi-lime to-cyan-600/80" />
-            Технологический стек
+            {t('rag.techTitle')}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {techStack.map((item, index) => (
@@ -158,7 +166,7 @@ export default function RAGPlatformSection() {
             >
               <div className="flex items-center gap-3">
                 <Zap className="h-6 w-6 text-ifi-lime" />
-                <span className="text-xl font-bold text-ifi-fg">Архитектура и реализация</span>
+                <span className="text-xl font-bold text-ifi-fg">{t('rag.expandTitle')}</span>
               </div>
               <div className="text-ifi-lime">
                 {expanded ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
@@ -178,7 +186,7 @@ export default function RAGPlatformSection() {
                     <div className="grid gap-8 md:grid-cols-2">
                       <div>
                         <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
-                          <Target className="h-4 w-4 text-ifi-lime" /> Вызовы
+                          <Target className="h-4 w-4 text-ifi-lime" /> {t('rag.challengesHeading')}
                         </h4>
                         <ul className="space-y-2">
                           {expandedDetails.problem.map((item, i) => (
@@ -192,7 +200,7 @@ export default function RAGPlatformSection() {
 
                       <div>
                         <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
-                          <Server className="h-4 w-4 text-ifi-lime" /> Техническая реализация
+                          <Server className="h-4 w-4 text-ifi-lime" /> {t('rag.implementationHeading')}
                         </h4>
                         <ul className="space-y-2">
                           {expandedDetails.solution.map((item, i) => (
@@ -207,7 +215,7 @@ export default function RAGPlatformSection() {
 
                     <div>
                       <h4 className="mb-4 flex items-center gap-2 font-semibold text-ifi-fg">
-                        <TrendingUp className="h-4 w-4 text-ifi-lime" /> Бизнес-эффект
+                        <TrendingUp className="h-4 w-4 text-ifi-lime" /> {t('rag.businessHeading')}
                       </h4>
                       <div className="grid gap-4 sm:grid-cols-3">
                         {expandedDetails.results.map((result, i) => (
@@ -242,13 +250,7 @@ export default function RAGPlatformSection() {
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_0%_50%,rgba(224,237,52,0.07),transparent_65%)]"
             aria-hidden
           />
-          <p className="relative leading-relaxed text-mineshaft-400">
-            Вместо обучения модели —{' '}
-            <span className="font-semibold text-ifi-fg">обучение архитектуры</span>. Использование{' '}
-            <span className="text-cyan-400/95">RabbitMQ</span> для очередей и{' '}
-            <span className="text-cyan-400/95">Qdrant</span> для векторного поиска обеспечивает горизонтальное
-            масштабирование и отказоустойчивость системы.
-          </p>
+          <p className="relative leading-relaxed text-mineshaft-400">{t('rag.footerQuote')}</p>
         </motion.div>
       </div>
     </section>

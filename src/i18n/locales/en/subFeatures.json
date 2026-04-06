@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "title": "Data platforms",
+      "text": "Indexing, search, and services on top of enterprise datasets — on‑prem and in the cloud."
+    },
+    {
+      "title": "Dynamic scenarios",
+      "text": "AI agent and pipeline orchestration with access policies and audit logging."
+    },
+    {
+      "title": "Observability",
+      "text": "Metrics, logs, and model quality control in production."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "ShadowGPT",
+  "introBefore": "공개 AI 서비스를 통한 유출 방지: 민감 데이터가 경계를 벗어나기 전 모니터링·위험 분류·정책. 제품 사이트:",
+  "introAfter": ".",
+  "cta": "제품 열기",
+  "techTitle": "기술 스택",
+  "features": [
+    "Shadow AI 통제: ChatGPT, Claude, Gemini 등 직원 프롬프트 가시성.",
+    "브라우저 확장·클라우드 대시보드 — 서버 에이전트 없이 빠른 시작.",
+    "확장 프로그램 내 프롬프트·첨부 로컬 분석: 기밀 텍스트를 서버로 보내지 않음.",
+    "다층 위험 평가: regex, 커스텀 규칙, Presidio NER, LLM — AI 전송 전.",
+    "파일·첨부: PDF, DOCX, 코드, OCR 이미지 — 사용자 기기에서 텍스트 추출.",
+    "경고·차단 정책과 고위험 이벤트 알림(Telegram, webhook, email)."
+  ],
+  "stack": [
+    { "label": "클라이언트", "value": "브라우저 확장(Chrome, Edge, Yandex)" },
+    { "label": "분류", "value": "Regex, 규칙, Presidio NER, LLM" },
+    { "label": "콘솔", "value": "대시보드, 이벤트 스트림(SSE), 리포트" },
+    { "label": "연동", "value": "Telegram, Webhook, Email" }
+  ],
+  "footer": "Shadow AI Protection — 공개 LLM에 대한 블랙박스 없는 정책·감사"
+}

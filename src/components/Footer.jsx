@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import BrandMark from '@/components/landing/BrandMark';
 import ObfuscatedEmailLink from '@/components/landing/ObfuscatedEmailLink';
 
-const product = [
-  { href: '#platform', label: 'Платформа' },
-  { href: '#integrations', label: 'Интеграции' },
-  { href: '#cases', label: 'Кейсы' },
+const productDefs = [
+  { href: '#platform', key: 'platform' },
+  { href: '#integrations', key: 'integrations' },
+  { href: '#cases', key: 'cases' },
 ];
 
-const company = [{ href: '#contact', label: 'Контакты' }];
-
 export default function Footer() {
+  const { t } = useTranslation();
+  const product = useMemo(
+    () => productDefs.map((p) => ({ ...p, label: t(`nav.${p.key}`) })),
+    [t]
+  );
+  const company = useMemo(() => [{ href: '#contact', label: t('nav.contacts') }], [t]);
   return (
     <footer className="border-t border-ifi-border bg-ifi-bg text-mineshaft-200">
       <div className="mx-auto max-w-6xl px-4 py-16">
@@ -27,11 +32,10 @@ export default function Footer() {
               <BrandMark />
             </p>
             <p className="mt-2 text-sm font-medium leading-snug text-mineshaft-300">
-              Лаборатория данных и искусственного интеллекта
+              {t('footer.tagline')}
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ifi-label">
-              Бюро разработки IT‑продуктов для крупного бизнеса: AI, данные, ML и интеграции в вашем
-              контуре.
+              {t('footer.blurb')}
             </p>
           </motion.div>
           <motion.div
@@ -40,7 +44,9 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.05 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">Разделы</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">
+              {t('footer.sections')}
+            </p>
             <ul className="mt-4 space-y-2">
               {product.map((item, i) => (
                 <motion.li
@@ -54,7 +60,7 @@ export default function Footer() {
                     href={item.href}
                     className="text-sm text-ifi-label transition hover:text-ifi-fg"
                     whileHover={{ x: 3 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 24 }}
+                    transition={{ type: 'spring', stiffness: 420, damping: 26 }}
                   >
                     {item.label}
                   </motion.a>
@@ -68,7 +74,9 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">Связь</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-ifi-muted">
+              {t('footer.connect')}
+            </p>
             <ul className="mt-4 space-y-2">
               {company.map((item) => (
                 <li key={item.label}>
@@ -76,7 +84,7 @@ export default function Footer() {
                     href={item.href}
                     className="text-sm text-ifi-label transition hover:text-ifi-fg"
                     whileHover={{ x: 3 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 24 }}
+                    transition={{ type: 'spring', stiffness: 420, damping: 26 }}
                   >
                     {item.label}
                   </motion.a>

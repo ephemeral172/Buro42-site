@@ -1,0 +1,24 @@
+{
+  "label": "Approach",
+  "headline": "Speed without losing discipline",
+  "benefits": [
+    {
+      "title": "Fast hypothesis testing",
+      "description": "Iterative delivery and AI tooling accelerate pilots while keeping architectural guardrails."
+    },
+    {
+      "title": "Short feedback loops",
+      "description": "Working increments for business and security alignment — critical in enterprise."
+    },
+    {
+      "title": "Modern stack",
+      "description": "Typed codebases, automation, and reproducible builds for long-term operations."
+    },
+    {
+      "title": "Control and quality",
+      "description": "Critical paths, security, and customer requirements stay in focus at every step."
+    }
+  ],
+  "summaryLabel": "Bottom line",
+  "summary": "Predictable pilot timelines and a transparent path to production launch"
+}

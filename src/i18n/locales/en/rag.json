@@ -1,0 +1,44 @@
+{
+  "title": "Enterprise RAG platform",
+  "introBefore": "A platform for structured and unstructured big data powered by AI — one scalable corporate solution. RAG grounds answers in fresh knowledge without costly fine‑tuning. Project:",
+  "introAfter": ".",
+  "cta": "Project website",
+  "techTitle": "Technology stack",
+  "expandTitle": "Architecture and implementation",
+  "challengesHeading": "Challenges",
+  "implementationHeading": "Technical approach",
+  "businessHeading": "Business impact",
+  "footerQuote": "Instead of training the model — train the architecture. RabbitMQ for queues and Qdrant for vector search enable horizontal scale and resilience.",
+  "features": [
+    "Contextual reasoning instead of fine‑tuning",
+    "Vector DBs (Qdrant/Weaviate) and semantic search",
+    "Asynchronous processing via RabbitMQ",
+    "Full data control (on‑prem / private cloud)"
+  ],
+  "stack": [
+    { "label": "AI / ML", "value": "Claude Opus, Gemini 3, GPT 5.2 Pro, Llama 3.1, Mistral Large" },
+    { "label": "Vector Storage", "value": "Qdrant / Weaviate / PGVector" },
+    { "label": "Message Broker", "value": "RabbitMQ (Celery/Aio-pika)" },
+    { "label": "Infrastructure", "value": "FastAPI, Docker" }
+  ],
+  "problems": [
+    "High GPU cost for classic fine‑tuning",
+    "Hard to maintain models when data shifts (constant retraining)",
+    "Weak adaptation to changing rules and model hallucinations",
+    "Vendor lock‑in and data security risks"
+  ],
+  "solutions": [
+    "Layered design: Reasoning (LLM), Knowledge (vector DB), Orchestration (RabbitMQ)",
+    "Semantic chunking to preserve document context",
+    "Hybrid search blending vector and full‑text for accuracy",
+    "Async pipelines for heavy documents via message brokers",
+    "Prompt flows with versioned logic"
+  ],
+  "effectLabels": ["Savings", "Adaptation", "Scale"],
+  "effectValues": ["33%", "Instant", "1000+"],
+  "effectDescs": [
+    "Lower annual cost of ownership",
+    "Update logic without retraining",
+    "Reviews and documents analyzed per day"
+  ]
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import VantaTopologyBg from '@/components/landing/VantaTopologyBg';
 import { cn } from '@/lib/utils';
 
@@ -36,6 +37,7 @@ const fadeUpBlur = (reduce) => ({
  * крупный градиент, разбитый заголовок, мягкий stagger).
  */
 export default function InfisicalHero() {
+  const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -75,13 +77,13 @@ export default function InfisicalHero() {
           className="font-display text-balance text-display-sm font-black tracking-tight sm:text-display md:text-display lg:text-display-lg xl:text-display-xl 2xl:text-display-2xl"
         >
           <motion.span variants={fadeUpBlur(reduceMotion)} className="block text-ifi-fg">
-            AI, данные и ML для крупного бизнеса
+            {t('hero.line1')}
           </motion.span>
           <motion.span
             variants={fadeUpBlur(reduceMotion)}
             className="mt-2 block bg-gradient-to-r from-ifi-lime via-[#ecf26d] to-[#63b0bd] bg-clip-text pb-0.5 text-transparent md:mt-3"
           >
-            от пилота до продакшена
+            {t('hero.line2')}
           </motion.span>
         </motion.h1>
 
@@ -89,8 +91,7 @@ export default function InfisicalHero() {
           variants={fadeUpBlur(reduceMotion)}
           className="mx-auto mt-8 max-w-2xl text-balance text-lg font-medium leading-[1.65] tracking-[-0.01em] text-mineshaft-300 md:mt-10 md:text-xl md:leading-[1.7]"
         >
-          Единая точка входа: Big Data, неструктурированные данные, LLM и RAG, MLOps и интеграция в ваш
-          ИТ‑ландшафт — с прозрачной поставкой и учётом ИБ.
+          {t('hero.lead')}
         </motion.p>
 
         <motion.div
@@ -104,7 +105,7 @@ export default function InfisicalHero() {
             transition={{ type: 'spring', stiffness: 450, damping: 22 }}
             className="inline-flex h-10 min-w-[140px] items-center justify-center rounded-md bg-ifi-lime px-7 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
           >
-            Обсудить проект
+            {t('hero.ctaDiscuss')}
           </motion.a>
           <motion.a
             href="#cases"
@@ -113,7 +114,7 @@ export default function InfisicalHero() {
             transition={{ type: 'spring', stiffness: 450, damping: 22 }}
             className="inline-flex h-10 min-w-[140px] items-center justify-center rounded-md border border-ifi-border px-7 text-sm font-semibold text-ifi-fg transition hover:border-ifi-fg/25 hover:bg-ifi-fg/10"
           >
-            Смотреть кейсы
+            {t('hero.ctaCases')}
           </motion.a>
         </motion.div>
       </motion.div>

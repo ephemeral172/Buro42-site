@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ArrowUpRight } from 'lucide-react';
 import { AnimatedLimeDot } from '@/components/landing/AnimatedLimeDot';
 import PillarMotionArt from '@/components/landing/PillarMotionArt';
@@ -43,87 +44,44 @@ function PillarPanel({ items }) {
   );
 }
 
-const blocks = [
-  {
-    id: 'ai',
-    title: 'AI и машинное обучение',
-    body: 'LLM, RAG и прикладной ML в промышленном контуре: векторизация и пайплайны данных, качество ответов, версии промптов, наблюдаемость и контроль стоимости вызовов.',
-    learn: '#cases',
-    learnLabel: 'Смотреть кейсы',
-    panelItems: [
-      {
-        label: 'LLM и RAG в проде',
-        detail:
-          'Чанкинг, эмбеддинги и актуализация индексов, версионирование промптов, кэширование, офлайн-оценки и защита от утечек в ответах.',
-      },
-      {
-        label: 'Наблюдаемость и стоимость',
-        detail: 'Трейсинг запросов, квоты, разбор всплесков и прозрачный учёт токенов по сервисам.',
-      },
-      {
-        label: 'Контур данных и ИБ',
-        detail: 'Изоляция индексов, политики доступа, аудит и согласование с вашим регламентом.',
-      },
-    ],
-  },
-  {
-    id: 'data',
-    title: 'Данные и Big Data',
-    body: 'Пайплайны и хранилища: от неструктурированных массивов до поиска, аналитики и сервисов с предсказуемыми SLA.',
-    learn: '#cases',
-    try: '#contact',
-    learnLabel: 'Примеры',
-    tryLabel: 'Обсудить архитектуру',
-    panelItems: [
-      {
-        label: 'Пайплайны и качество данных',
-        detail: 'ETL/ELT, контракты схем, мониторинг свежести и контроль аномалий в потоках.',
-      },
-      {
-        label: 'Хранилище под нагрузку',
-        detail: 'Lakehouse, партиционирование, tiering и резервирование под ваши объёмы и запросы.',
-      },
-      {
-        label: 'SLA для потребителей',
-        detail: 'API к датасетам, очереди, лимиты и понятные SLO на выдачу и интерактивную аналитику.',
-      },
-    ],
-  },
-  {
-    id: 'sec',
-    title: 'Интеграции и доступ',
-    body: 'Встраивание в ваш ландшафт: API, SSO, on‑prem и облако, роли, аудит и требования информационной безопасности.',
-    learn: '#integrations',
-    try: '#contact',
-    learnLabel: 'Интеграции',
-    tryLabel: 'Связаться',
-    panelItems: [
-      {
-        label: 'API и события',
-        detail: 'REST/gRPC, вебхуки и шины сообщений — без «единой точки отказа» в обмене.',
-      },
-      {
-        label: 'Идентичность и роли',
-        detail: 'SSO, RBAC, делегирование и согласование с корпоративным IAM.',
-      },
-      {
-        label: 'Аудит и соответствие',
-        detail: 'Журналы доступа, трассировка действий и артефакты для проверок ИБ и внутреннего контроля.',
-      },
-    ],
-  },
-];
+const blockIds = ['ai', 'data', 'sec'];
 
 export default function ProductPillars() {
+  const { t } = useTranslation();
+  const blocks = useMemo(
+    () =>
+      blockIds.map((id) => {
+        const p = t(`pillars.${id}`, { returnObjects: true });
+        const base = {
+          id,
+          title: p.title,
+          body: p.body,
+          learnLabel: p.learnLabel,
+          panelItems: p.panels,
+          learn: id === 'sec' ? '#integrations' : '#cases',
+          try: id === 'ai' ? undefined : '#contact',
+          tryLabel: id === 'ai' ? undefined : p.tryLabel,
+        };
+        return base;
+      }),
+    [t]
+  );
+
   return (
     <section id="platform" className="scroll-mt-20">
-      {blocks.map((block, index) => (
+      {blocks.map((block, index) => {
+        const fromRight = index % 2 === 1;
+        return (
         <motion.div
           key={block.id}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{
+            opacity: 0,
+            x: fromRight ? 28 : -28,
+            filter: 'blur(6px)',
+          }}
+          whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-12% 0px' }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center md:gap-16 md:py-24 lg:gap-20"
         >
           <div
@@ -157,7 +115,8 @@ export default function ProductPillars() {
             <PillarPanel items={block.panelItems} />
           </div>
         </motion.div>
-      ))}
+        );
+      })}
     </section>
   );
 }

@@ -1,35 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Zap, Clock, Shield, Code } from 'lucide-react';
 
-const benefits = [
-  {
-    icon: Zap,
-    title: 'Быстрая проверка гипотез',
-    description:
-      'Итеративная разработка и AI-инструменты ускоряют пилоты при сохранении архитектурного контроля.',
-  },
-  {
-    icon: Clock,
-    title: 'Короткий цикл обратной связи',
-    description:
-      'Рабочие инкременты для согласования с бизнесом и ИБ — особенно важно в enterprise.',
-  },
-  {
-    icon: Code,
-    title: 'Современный стек',
-    description:
-      'Типизированные кодовые базы, автоматизация и воспроизводимые сборки для долгой эксплуатации.',
-  },
-  {
-    icon: Shield,
-    title: 'Контроль и качество',
-    description:
-      'Критичные участки, безопасность и соответствие требованиям заказчика — в фокусе на каждом этапе.',
-  },
-];
+const benefitIcons = [Zap, Clock, Code, Shield];
 
 export default function VibeCodingSection() {
+  const { t } = useTranslation();
+  const benefits = useMemo(() => {
+    const raw = t('vibe.benefits', { returnObjects: true });
+    return raw.map((b, i) => ({
+      icon: benefitIcons[i] ?? Zap,
+      title: b.title,
+      description: b.description,
+    }));
+  }, [t]);
   return (
     <section className="relative py-24 md:py-28 px-4 bg-mineshaft-900/30">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -42,14 +27,10 @@ export default function VibeCodingSection() {
         >
           <div className="mb-4 flex items-center justify-center gap-4">
             <div className="h-px w-14 bg-gradient-to-r from-transparent to-blue-600" />
-            <span className="font-mono text-sm uppercase tracking-[0.18em] text-blue-600">
-              Подход
-            </span>
+            <span className="font-mono text-sm uppercase tracking-[0.18em] text-blue-600">{t('vibe.label')}</span>
             <div className="h-px w-14 bg-gradient-to-l from-transparent to-blue-600" />
           </div>
-          <p className="text-2xl font-semibold text-ifi-fg tracking-tight">
-            Скорость без потери дисциплины
-          </p>
+          <p className="text-2xl font-semibold text-ifi-fg tracking-tight">{t('vibe.headline')}</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -95,10 +76,10 @@ export default function VibeCodingSection() {
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_45%_at_50%_-10%,rgba(224,237,52,0.09),transparent_58%)]"
               aria-hidden
             />
-            <p className="relative font-mono text-xs uppercase tracking-[0.18em] text-ifi-lime">Итог</p>
-            <p className="relative mt-2 text-base font-semibold tracking-tight text-ifi-fg">
-              Предсказуемые сроки пилотов и прозрачный путь к промышленному запуску
+            <p className="relative font-mono text-xs uppercase tracking-[0.18em] text-ifi-lime">
+              {t('vibe.summaryLabel')}
             </p>
+            <p className="relative mt-2 text-base font-semibold tracking-tight text-ifi-fg">{t('vibe.summary')}</p>
           </div>
         </motion.div>
       </div>

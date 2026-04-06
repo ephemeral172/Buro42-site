@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import VantaTrunkBg from '@/components/landing/VantaTrunkBg';
 
 export default function QuoteBand() {
+  const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -22,7 +24,7 @@ export default function QuoteBand() {
           transition={{ duration: 0.5 }}
           className="text-sm font-semibold uppercase text-ifi-lime"
         >
-          Подход
+          {t('quote.label')}
         </motion.p>
         <motion.blockquote
           initial={{ opacity: 0, y: 14 }}
@@ -31,8 +33,7 @@ export default function QuoteBand() {
           transition={{ duration: 0.55, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           className="mt-4 text-xl font-medium leading-snug text-ifi-fg md:text-2xl"
         >
-          «Сложные продукты живут годами: мы закладываем архитектуру, данные и эксплуатацию так, чтобы
-          команда заказчика могла развивать систему без хаоса.»
+          {t('quote.quote')}
         </motion.blockquote>
         <motion.p
           initial={{ opacity: 0 }}
@@ -41,7 +42,7 @@ export default function QuoteBand() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="mt-6 text-sm text-mineshaft-400"
         >
-          Buro42 — бюро разработки IT‑продуктов
+          {t('quote.attribution')}
         </motion.p>
       </div>
     </section>

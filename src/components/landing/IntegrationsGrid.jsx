@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ArrowUpRight } from 'lucide-react';
 
 const tools = [
@@ -38,6 +39,7 @@ const itemVariants = {
 };
 
 export default function IntegrationsGrid() {
+  const { t } = useTranslation();
   return (
     <section id="integrations" className="scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
@@ -48,11 +50,10 @@ export default function IntegrationsGrid() {
           transition={{ duration: 0.45 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">Под ваш стек</h2>
-          <p className="mt-4 text-lg text-mineshaft-400">
-            Строим решения в привычной экосистеме: облако, on‑prem, CI/CD и данные — без привязки к
-            одному вендору.
-          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">
+            {t('integrations.title')}
+          </h2>
+          <p className="mt-4 text-lg text-mineshaft-400">{t('integrations.subtitle')}</p>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
@@ -85,7 +86,7 @@ export default function IntegrationsGrid() {
             href="#contact"
             className="group inline-flex items-center gap-1 text-sm font-semibold text-ifi-lime transition hover:text-[#ecf26d]"
           >
-            Обсудить интеграции
+            {t('integrations.cta')}
             <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </motion.p>

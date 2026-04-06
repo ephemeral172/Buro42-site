@@ -1,0 +1,22 @@
+{
+  "title": "Reliability you can plan around",
+  "subtitle": "Clear commitments — not just “we’ll handle everything.”",
+  "items": [
+    {
+      "title": "Aligned with your standards",
+      "text": "We respect your security, data retention, and process requirements — without marketing fluff."
+    },
+    {
+      "title": "Predictable delivery",
+      "text": "Agreements on phases, deliverables, and production observability."
+    },
+    {
+      "title": "Data protection",
+      "text": "Encryption in transit and at rest where appropriate; segmentation of environments and secrets."
+    },
+    {
+      "title": "Your perimeter",
+      "text": "On‑prem, VPC, or hybrid — configured for policy and regulatory needs."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "AI nutrition tracking app",
+  "subtitle": "AI app for diet and activity insights",
+  "functionality": "Features",
+  "tech": "Technical implementation",
+  "items": [
+    "calories and macros from photos",
+    "food diary",
+    "water and workout tracking",
+    "user behavior analytics",
+    "engagement and competition mechanics"
+  ],
+  "stack": [
+    { "label": "Frontend", "value": "Vite" },
+    { "label": "Database", "value": "Supabase" },
+    { "label": "Logic", "value": "n8n + AI" },
+    { "label": "Platform", "value": "Telegram Mini App" }
+  ]
+}

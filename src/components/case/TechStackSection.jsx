@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   Zap,
   Server,
@@ -25,78 +26,29 @@ import {
   Layers,
 } from 'lucide-react';
 
-const techCategories = [
-  {
-    title: 'Языки и backend',
-    techs: [
-      { name: 'Python (Pandas, NumPy, GeoPandas)', icon: FileCode },
-      { name: 'Node.js', icon: Server },
-      { name: 'TypeScript', icon: Code2 },
-      { name: 'SQL', icon: Table },
-    ],
-  },
-  {
-    title: 'Frontend',
-    techs: [
-      { name: 'React', icon: Code2 },
-      { name: 'Vue.js', icon: Layers },
-      { name: 'Next.js', icon: Zap },
-      { name: 'Vite', icon: Zap },
-      { name: 'Интерактивные веб-приложения и дашборды', icon: LayoutDashboard },
-    ],
-  },
-  {
-    title: 'Базы данных',
-    techs: [
-      { name: 'PostgreSQL', icon: Database },
-      { name: 'MySQL', icon: Database },
-      { name: 'MongoDB', icon: Database },
-      { name: 'Redis', icon: Database },
-      { name: 'Векторные БД: Qdrant, pgvector, Weaviate', icon: Database },
-    ],
-  },
-  {
-    title: 'ИИ и ML',
-    techs: [
-      { name: 'LLM (Claude, GPT, локальные модели)', icon: Sparkles },
-      { name: 'RAG-системы', icon: Cpu },
-      { name: 'ИИ-агенты', icon: Bot },
-      { name: 'LangChain', icon: Workflow },
-      { name: 'PyTorch', icon: Brain },
-      { name: 'Transformers (Hugging Face)', icon: Brain },
-    ],
-  },
-  {
-    title: 'Интеграции и workflow',
-    techs: [
-      { name: 'REST API', icon: Plug },
-      { name: 'GraphQL', icon: Braces },
-      { name: 'WebSocket', icon: Radio },
-      { name: 'Брокеры сообщений (RabbitMQ и др.)', icon: Inbox },
-      { name: 'FastAPI', icon: FileCode },
-      { name: 'n8n', icon: Workflow },
-    ],
-  },
-  {
-    title: 'Визуализация данных',
-    techs: [
-      { name: 'Apache Superset', icon: ChartColumn },
-      { name: 'Grafana', icon: Activity },
-      { name: 'Кастомные веб-дашборды', icon: LayoutDashboard },
-    ],
-  },
-  {
-    title: 'Инфраструктура',
-    techs: [
-      { name: 'Docker', icon: Box },
-      { name: 'Linux-серверы', icon: Terminal },
-      { name: 'Облачные платформы (AWS и др.)', icon: Cloud },
-      { name: 'On‑premise развёртывание', icon: Server },
-    ],
-  },
+const techIconRows = [
+  [FileCode, Server, Code2, Table],
+  [Code2, Layers, Zap, Zap, LayoutDashboard],
+  [Database, Database, Database, Database, Database],
+  [Sparkles, Cpu, Bot, Workflow, Brain, Brain],
+  [Plug, Braces, Radio, Inbox, FileCode, Workflow],
+  [ChartColumn, Activity, LayoutDashboard],
+  [Box, Terminal, Cloud, Server],
 ];
 
 export default function TechStackSection() {
+  const { t } = useTranslation();
+  const techCategories = useMemo(() => {
+    const raw = t('techStack.categories', { returnObjects: true });
+    return raw.map((cat, ci) => ({
+      title: cat.title,
+      techs: cat.items.map((name, ti) => ({
+        name,
+        icon: techIconRows[ci]?.[ti] ?? Code2,
+      })),
+    }));
+  }, [t]);
+
   return (
     <section className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900 py-24 md:py-28 px-4">
       {/* Плотный фон — иначе сквозь полупрозрачность проступает глобальный AuthPageBackground (SVG «объект»). */}
@@ -114,7 +66,7 @@ export default function TechStackSection() {
         >
           <div className="mb-4 flex items-center justify-center gap-4">
             <div className="h-px w-14 bg-gradient-to-r from-transparent to-ifi-lime/70" />
-            <span className="font-mono text-sm uppercase tracking-[0.18em] text-ifi-lime">Стек</span>
+            <span className="font-mono text-sm uppercase tracking-[0.18em] text-ifi-lime">{t('techStack.label')}</span>
             <div className="h-px w-14 bg-gradient-to-l from-transparent to-ifi-lime/70" />
           </div>
         </motion.div>
@@ -166,9 +118,7 @@ export default function TechStackSection() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-ifi-border bg-mineshaft-900/80 px-6 py-3 shadow-sm backdrop-blur-sm">
             <div className="h-2 w-2 rounded-full bg-ifi-lime shadow-[0_0_10px_rgba(224,237,52,0.5)]" />
-            <span className="font-mono text-sm text-mineshaft-400">
-              Прагматичный выбор технологий под нагрузку и команду заказчика
-            </span>
+            <span className="font-mono text-sm text-mineshaft-400">{t('techStack.footer')}</span>
           </div>
         </motion.div>
       </div>

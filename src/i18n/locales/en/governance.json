@@ -1,0 +1,22 @@
+{
+  "title": "Governance and security",
+  "subtitle": "Enterprise SaaS principles: lower risk and predictable operations for your team.",
+  "cards": [
+    {
+      "title": "Audit and transparency",
+      "text": "Change tracking, logging of critical actions, and security reporting."
+    },
+    {
+      "title": "Access control",
+      "text": "Roles, policies, and segregation for people and service accounts."
+    },
+    {
+      "title": "Change governance",
+      "text": "Clear rollout and acceptance steps — including for sensitive environments."
+    },
+    {
+      "title": "Temporary access",
+      "text": "Time‑boxed access to environments and data with automatic revocation per policy."
+    }
+  ]
+}

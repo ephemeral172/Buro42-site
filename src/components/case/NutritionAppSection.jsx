@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Apple, Camera, Droplet, Dumbbell, TrendingUp, Trophy, Smartphone, ExternalLink } from 'lucide-react';
 
-const functionality = [
-  { icon: Camera, text: 'подсчет калорий и БЖУ по фото' },
-  { icon: Apple, text: 'дневник питания' },
-  { icon: Droplet, text: 'учет воды и тренировок' },
-  { icon: TrendingUp, text: 'анализ поведения пользователя' },
-  { icon: Trophy, text: 'механики вовлечения и соревнований' },
-];
-
-const techStack = [
-  { label: 'Frontend', value: 'Vite', color: 'from-blue-500 to-cyan-500' },
-  { label: 'БД', value: 'Supabase', color: 'from-ifi-lime to-ifi-info' },
-  { label: 'Логика', value: 'n8n + AI', color: 'from-purple-500 to-pink-500' },
-  { label: 'Платформа', value: 'Telegram Mini App', color: 'from-blue-400 to-blue-600' },
+const funcIcons = [Camera, Apple, Droplet, TrendingUp, Trophy];
+const stackGradients = [
+  'from-blue-500 to-cyan-500',
+  'from-ifi-lime to-ifi-info',
+  'from-purple-500 to-pink-500',
+  'from-blue-400 to-blue-600',
 ];
 
 export default function NutritionAppSection() {
+  const { t } = useTranslation();
+  const functionality = useMemo(() => {
+    const texts = t('nutrition.items', { returnObjects: true });
+    return texts.map((text, i) => ({
+      icon: funcIcons[i] ?? Camera,
+      text,
+    }));
+  }, [t]);
+
+  const techStack = useMemo(() => {
+    const raw = t('nutrition.stack', { returnObjects: true });
+    return raw.map((row, i) => ({
+      ...row,
+      color: stackGradients[i] ?? 'from-blue-500 to-cyan-500',
+    }));
+  }, [t]);
+
   return (
     <section className="relative py-24 md:py-28 px-4">
       <div className="max-w-6xl mx-auto">
@@ -36,14 +47,12 @@ export default function NutritionAppSection() {
           >
             <div className="flex items-center gap-4 mb-4">
               <Dumbbell className="w-6 h-6 text-ifi-lime-ink" />
-              <span className="text-ifi-lime-ink font-mono text-xs uppercase tracking-[0.2em]">Кейс</span>
+              <span className="text-ifi-lime-ink font-mono text-xs uppercase tracking-[0.2em]">
+                {t('commonUi.caseBadge')}
+              </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ifi-fg">
-              AI-приложение контроля питания
-            </h2>
-            <p className="text-mineshaft-400 text-lg">
-              AI-приложение для анализа питания и активности пользователя
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-ifi-fg">{t('nutrition.title')}</h2>
+            <p className="text-mineshaft-400 text-lg">{t('nutrition.subtitle')}</p>
             <a
               href="https://t.me/Eva_fitbot"
               target="_blank"
@@ -66,7 +75,7 @@ export default function NutritionAppSection() {
             >
               <h3 className="text-xl font-bold text-ifi-fg mb-6 flex items-center gap-2 tracking-tight">
                 <div className="w-1 h-6 bg-gradient-to-b from-ifi-lime-ink to-[#006eff] rounded-full" />
-                Функциональность
+                {t('nutrition.functionality')}
               </h3>
               
               <div className="space-y-3">
@@ -99,7 +108,7 @@ export default function NutritionAppSection() {
             >
               <h3 className="text-xl font-bold text-ifi-fg mb-6 flex items-center gap-2 tracking-tight">
                 <div className="w-1 h-6 bg-gradient-to-b from-blue-600 to-cyan-500 rounded-full" />
-                Техническая реализация
+                {t('nutrition.tech')}
               </h3>
               
               <div className="space-y-4">

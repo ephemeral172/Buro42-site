@@ -1,40 +1,50 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Sparkles, Database, Wand2, FileSearch, TrendingUp, Zap, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
+const featureMeta = [
+  { icon: FileSearch, color: 'text-violet-600' },
+  { icon: Wand2, color: 'text-fuchsia-600' },
+  { icon: Database, color: 'text-blue-600' },
+  { icon: CheckCircle, color: 'text-ifi-lime-ink' },
+];
+
+const stackGradients = [
+  'from-blue-600 to-cyan-500',
+  'from-violet-600 to-fuchsia-500',
+  'from-ifi-lime-ink to-ifi-info',
+  'from-amber-600 to-orange-500',
+];
+
 export default function SEOMagicSection() {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
-  const keyFeatures = [
-    { icon: FileSearch, text: 'Автоматический анализ SERP и конкурентов', color: 'text-violet-600' },
-    { icon: Wand2, text: 'AI-генерация SEO-структуры и контента', color: 'text-fuchsia-600' },
-    { icon: Database, text: 'Управляемый пайплайн с фиксацией состояний', color: 'text-blue-600' },
-    { icon: CheckCircle, text: 'Возможность регенерации любого элемента', color: 'text-ifi-lime-ink' },
-  ];
+  const keyFeatures = useMemo(() => {
+    const texts = t('seoMagic.features', { returnObjects: true });
+    return texts.map((text, i) => ({
+      text,
+      ...featureMeta[i],
+    }));
+  }, [t]);
 
-  const techStack = [
-    { label: 'Frontend', value: 'React + Vite', color: 'from-blue-600 to-cyan-500' },
-    { label: 'AI Orchestration', value: 'n8n', color: 'from-violet-600 to-fuchsia-500' },
-    { label: 'Backend', value: 'Supabase + PostgreSQL', color: 'from-ifi-lime-ink to-ifi-info' },
-    { label: 'AI Models', value: 'Gemini via OpenRouter', color: 'from-amber-600 to-orange-500' },
-  ];
+  const techStack = useMemo(() => {
+    const raw = t('seoMagic.stack', { returnObjects: true });
+    return raw.map((row, i) => ({
+      ...row,
+      color: stackGradients[i] ?? 'from-blue-600 to-cyan-500',
+    }));
+  }, [t]);
 
-  const expandedDetails = {
-    architecture: [
-      'Разделение на 3 независимых слоя: Frontend, AI Orchestration, Backend',
-      'State-machine задач с явными состояниями переходов',
-      'Пошаговая генерация с возможностью вмешательства на каждом этапе',
-    ],
-    workflow: [
-      'Анализ SERP через PixelPlus → парсинг конкурентов → генерация структуры → написание текста',
-      'Каждый шаг сохраняется в БД, возможна частичная регенерация. Polling статусов задач через TanStack Query',
-    ],
-    results: [
-      'Промышленная генерация SEO-контента без "черного ящика"',
-      'Полный контроль над процессом на каждом этапе',
-      'Масштабируемость без переписывания архитектуры',
-    ],
-  };
+  const expandedDetails = useMemo(
+    () => ({
+      architecture: t('seoMagic.architecture', { returnObjects: true }),
+      workflow: t('seoMagic.workflow', { returnObjects: true }),
+      results: t('seoMagic.results', { returnObjects: true }),
+    }),
+    [t]
+  );
 
   return (
     <section className="relative px-4 py-20 md:py-24">
@@ -48,10 +58,10 @@ export default function SEOMagicSection() {
         >
           <div className="mb-4 flex items-center gap-4">
             <Sparkles className="h-6 w-6 text-ifi-lime" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">Кейс</span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ifi-lime">{t('commonUi.caseBadge')}</span>
           </div>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-ifi-fg lg:text-5xl">SEO Fair AI</h2>
-          <p className="text-lg text-mineshaft-400">AI-платформа для промышленной генерации SEO-контента</p>
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-ifi-fg lg:text-5xl">{t('seoMagic.title')}</h2>
+          <p className="text-lg text-mineshaft-400">{t('seoMagic.subtitle')}</p>
         </motion.div>
 
         <div className="mb-8 grid gap-4 sm:grid-cols-2">
@@ -79,7 +89,7 @@ export default function SEOMagicSection() {
         >
           <h3 className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-ifi-fg">
             <div className="h-6 w-1 rounded-full bg-gradient-to-b from-ifi-lime to-ifi-lime/40" />
-            Технологический стек
+            {t('seoMagic.techTitle')}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {techStack.map((item, index) => (
@@ -113,7 +123,7 @@ export default function SEOMagicSection() {
             >
               <div className="flex items-center gap-3">
                 <Zap className="h-6 w-6 text-ifi-lime" />
-                <span className="text-xl font-bold text-ifi-fg">Подробнее о реализации</span>
+                <span className="text-xl font-bold text-ifi-fg">{t('seoMagic.expandTitle')}</span>
               </div>
               <div className="text-ifi-lime">
                 {expanded ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
@@ -132,7 +142,7 @@ export default function SEOMagicSection() {
                   <div className="space-y-6 p-6">
                     <div>
                       <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
-                        <Database className="h-4 w-4 text-ifi-lime" /> Архитектура
+                        <Database className="h-4 w-4 text-ifi-lime" /> {t('seoMagic.architectureHeading')}
                       </h4>
                       <ul className="space-y-2">
                         {expandedDetails.architecture.map((item, i) => (
@@ -146,7 +156,7 @@ export default function SEOMagicSection() {
 
                     <div>
                       <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
-                        <Wand2 className="h-4 w-4 text-ifi-lime" /> Рабочий процесс
+                        <Wand2 className="h-4 w-4 text-ifi-lime" /> {t('seoMagic.workflowHeading')}
                       </h4>
                       <ul className="space-y-2">
                         {expandedDetails.workflow.map((item, i) => (
@@ -160,7 +170,7 @@ export default function SEOMagicSection() {
 
                     <div>
                       <h4 className="mb-3 flex items-center gap-2 font-semibold text-ifi-fg">
-                        <TrendingUp className="h-4 w-4 text-ifi-lime" /> Результаты
+                        <TrendingUp className="h-4 w-4 text-ifi-lime" /> {t('seoMagic.resultsHeading')}
                       </h4>
                       <ul className="space-y-2">
                         {expandedDetails.results.map((item, i) => (
@@ -188,7 +198,7 @@ export default function SEOMagicSection() {
           <div className="inline-flex items-center gap-2 rounded-full border border-ifi-border bg-mineshaft-900/75 px-6 py-3 backdrop-blur-sm">
             <div className="h-2 w-2 rounded-full bg-ifi-lime shadow-[0_0_10px_rgba(224,237,52,0.45)]" />
             <span className="font-mono text-sm text-mineshaft-400">
-              Управляемый и воспроизводимый AI без «черного ящика»
+              {t('seoMagic.footer')}
             </span>
           </div>
         </motion.div>

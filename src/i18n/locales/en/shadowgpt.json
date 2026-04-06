@@ -1,0 +1,22 @@
+{
+  "title": "ShadowGPT",
+  "introBefore": "Protect the company from leaks via public AI services: monitoring, risk classification, and policies before sensitive data leaves the perimeter. The product is available at",
+  "introAfter": ".",
+  "cta": "Open product",
+  "techTitle": "Technology stack",
+  "features": [
+    "Shadow AI control: visibility into employee prompts to ChatGPT, Claude, Gemini, and other services.",
+    "Browser extension and cloud dashboard — no server agents or long deployments.",
+    "Prompt and attachment analysis locally in the extension: confidential text is not sent to a server for parsing.",
+    "Layered risk scoring: regex, custom rules, Presidio NER, LLM — before the request goes to AI.",
+    "Files and attachments: PDF, DOCX, code, images with OCR — text extraction on the user device.",
+    "Flag / warn / block policies and alerts (Telegram, webhook, email) for high‑risk events."
+  ],
+  "stack": [
+    { "label": "Client", "value": "Browser extension (Chrome, Edge, Yandex)" },
+    { "label": "Classification", "value": "Regex, rules, Presidio NER, LLM" },
+    { "label": "Console", "value": "Dashboard, event stream (SSE), reports" },
+    { "label": "Integrations", "value": "Telegram, Webhook, Email" }
+  ],
+  "footer": "Shadow AI Protection — policies and audit without a black box around public LLMs"
+}

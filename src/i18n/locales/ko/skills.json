@@ -1,0 +1,19 @@
+{
+  "label": "역량",
+  "intro": "대기업 제품에 집중: 데이터, AI, 안정적 운영.",
+  "titles": [
+    "AI·풀스택 플랫폼 개발",
+    "데이터 아키텍처·고부하 백엔드",
+    "연동·API·기업 시나리오",
+    "LLM·RAG·응용 ML 오케스트레이션",
+    "서비스·큐·프로덕션급 경계",
+    "파이프라인 자동화·관측 가능성",
+    "보안·역할·고객 정책 정합"
+  ],
+  "statProfile": "프로필",
+  "statProfileValue": "ENTERPRISE",
+  "statDomains": "도메인",
+  "statDelivery": "제공 방식",
+  "statDomainsValue": "AI · 데이터",
+  "statDeliveryValue": "턴키"
+}

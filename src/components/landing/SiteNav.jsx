@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import BrandMark from '@/components/landing/BrandMark';
+import LanguageSwitcher from '@/components/landing/LanguageSwitcher';
 
-const links = [
-  { href: '#platform', label: 'Платформа' },
-  { href: '#integrations', label: 'Интеграции' },
-  { href: '#cases', label: 'Кейсы' },
-  { href: '#contact', label: 'Контакты' },
+const linkDefs = [
+  { href: '#platform', key: 'platform' },
+  { href: '#integrations', key: 'integrations' },
+  { href: '#cases', key: 'cases' },
+  { href: '#contact', key: 'contacts' },
 ];
 
 const listVariants = {
@@ -47,15 +49,42 @@ const ctaInstant = {
 };
 
 export default function SiteNav() {
+  const { t } = useTranslation();
+  const links = useMemo(
+    () => linkDefs.map((l) => ({ ...l, label: t(`nav.${l.key}`) })),
+    [t]
+  );
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
+  const [visible, setVisible] = useState(true);
+  const lastY = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const y = window.scrollY;
+    if (y < 80 || y < lastY.current) {
+      setVisible(true);
+    } else if (y > lastY.current + 4) {
+      setVisible(false);
+      setOpen(false);
+    }
+    lastY.current = y;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   const panelTransition = reduceMotion
     ? { duration: 0.2 }
     : { duration: 0.38, ease: [0.16, 1, 0.3, 1] };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ifi-border/80 bg-ifi-bg/75 backdrop-blur-md">
+    <motion.header
+      animate={{ y: visible ? 0 : '-100%' }}
+      transition={reduceMotion ? { duration: 0.15 } : { duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+      className="sticky top-0 z-40 border-b border-ifi-border/80 bg-ifi-bg/75 backdrop-blur-md"
+    >
       <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 py-3 md:py-3.5">
         <a
           href="#"
@@ -64,7 +93,7 @@ export default function SiteNav() {
           <BrandMark />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Основное меню">
+        <nav className="hidden items-center gap-8 md:flex" aria-label={t('nav.mainNav')}>
           {links.map((l) => (
             <a
               key={l.href}
@@ -77,24 +106,25 @@ export default function SiteNav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <LanguageSwitcher className="mr-1" />
           <a
             href="#cases"
             className="inline-flex h-9 items-center justify-center rounded-md border border-ifi-border px-3 text-sm font-medium text-ifi-fg transition hover:border-ifi-fg/25 hover:bg-ifi-fg/10"
           >
-            Кейсы
+            {t('nav.ctaCases')}
           </a>
           <a
             href="#contact"
             className="inline-flex h-9 items-center justify-center rounded-md bg-ifi-lime px-3 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
           >
-            Связаться
+            {t('nav.ctaContact')}
           </a>
         </div>
 
         <motion.button
           type="button"
           className="relative rounded-lg p-2 text-mineshaft-300 md:hidden"
-          aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           whileTap={{ scale: 0.92 }}
@@ -144,7 +174,7 @@ export default function SiteNav() {
           >
             <motion.nav
               className="flex flex-col gap-1 px-4 py-5"
-              aria-label="Мобильное меню"
+              aria-label={t('nav.mobileNav')}
               variants={
                 reduceMotion
                   ? { hidden: {}, visible: { transition: { staggerChildren: 0, delayChildren: 0 } } }
@@ -153,6 +183,9 @@ export default function SiteNav() {
               initial="hidden"
               animate="visible"
             >
+              <div className="mb-2 flex justify-center px-3">
+                <LanguageSwitcher />
+              </div>
               {links.map((l) => (
                 <motion.a
                   key={l.href}
@@ -172,12 +205,12 @@ export default function SiteNav() {
                 onClick={() => setOpen(false)}
                 whileTap={{ scale: 0.98 }}
               >
-                Связаться
+                {t('nav.ctaContact')}
               </motion.a>
             </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

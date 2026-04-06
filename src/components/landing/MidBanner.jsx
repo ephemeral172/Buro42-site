@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import VantaTrunkBg from '@/components/landing/VantaTrunkBg';
@@ -8,6 +9,7 @@ import VantaTrunkBg from '@/components/landing/VantaTrunkBg';
 const TRUNK_PANEL_RIGHT = true;
 
 export default function MidBanner() {
+  const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -22,7 +24,7 @@ export default function MidBanner() {
           className="mx-auto max-w-5xl text-balance text-center"
         >
           <p className="text-2xl font-semibold leading-snug tracking-tight text-ifi-fg md:text-3xl md:leading-tight lg:text-4xl lg:leading-[1.15]">
-            От пилота до промышленной эксплуатации — с понятной дорожной картой и метриками.
+            {t('midBanner.headline')}
           </p>
         </motion.div>
       </section>
@@ -43,7 +45,7 @@ export default function MidBanner() {
               transition={{ duration: 0.4, delay: 0.05 }}
               className="max-w-xl text-balance text-base leading-relaxed text-mineshaft-400 md:text-lg"
             >
-              Кейсы с разбивкой по отраслям и задачам: от пилот до масштабирования и сопровождения.
+              {t('midBanner.body')}
             </motion.p>
             <motion.a
               href="#cases"
@@ -55,7 +57,7 @@ export default function MidBanner() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex w-fit items-center gap-1.5 rounded-md bg-ifi-lime px-5 py-2.5 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
             >
-              Смотреть кейсы
+              {t('midBanner.cta')}
               <ArrowUpRight className="h-4 w-4 shrink-0" />
             </motion.a>
           </div>

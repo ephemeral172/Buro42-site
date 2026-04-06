@@ -1,0 +1,33 @@
+{
+  "title": "RUNA AI",
+  "subtitle": "콘텐츠 생성",
+  "miniApp": "텔레그램 미니앱",
+  "intro": "텍스트·이미지·비디오 AI 생성용 텔레그램 봇·웹 미니앱입니다. 봇 또는 웹에서 모델 선택·프롬프트 전송·결과 수신. OpenAI, Anthropic, Google, Replicate, Midjourney 등 외부 공급자로 라우팅하며 한도·비용을 고려합니다.",
+  "archLabels": {
+    "bot": "봇(텔레그램):",
+    "api": "API(백엔드):",
+    "mini": "미니앱(프론트):",
+    "db": "데이터베이스:",
+    "queue": "큐:",
+    "storage": "스토리지:"
+  },
+  "archDetails": {
+    "bot": "aiogram v3, 명령, Redis FSM, 스로틀(2 rps), 멱등성. 스트리밍 응답·최대 20MB 첨부.",
+    "api": "FastAPI로 CRUD·공급자 라우팅·S3 presign 업로드. WebApp initData 검증.",
+    "mini": "Next.js 15로 설정·대화·콘텐츠 생성.",
+    "db": "Tortoise ORM·PostgreSQL(프로덕션) 또는 SQLite(개발). Aerich 마이그레이션.",
+    "queue": "RabbitMQ(aio-pika)로 S3 정리 등 비동기 작업.",
+    "storage": "S3(개발은 MinIO), 30일 보존(비디오 7일). Presign URL."
+  },
+  "features": [
+    "텍스트 생성",
+    "이미지 생성",
+    "비디오 생성",
+    "결제 연동",
+    "보안·역할",
+    "비동기 처리"
+  ],
+  "bottomTitle": "엔터프라이즈급 아키텍처",
+  "bottomBody": "결제·보안·접근 역할 구현. 메시지 브로커 기반 작업 큐·비동기 처리.",
+  "bottomBadge": "상용 사용 준비"
+}

@@ -1,0 +1,12 @@
+{
+  "platform": "Platform",
+  "integrations": "Integrations",
+  "cases": "Cases",
+  "contacts": "Contact",
+  "ctaCases": "Cases",
+  "ctaContact": "Get in touch",
+  "mainNav": "Main navigation",
+  "mobileNav": "Mobile menu",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu"
+}

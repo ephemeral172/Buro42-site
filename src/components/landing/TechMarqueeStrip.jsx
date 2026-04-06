@@ -1,34 +1,35 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Marquee } from '@/components/ui/marquee';
 
-/** Полоса «логотипов» как у Infisical — нейтральные плашки, бегущая строка. */
-const BRANDS = [
-  'В2В · Финтех',
-  'Ритейл',
-  'Промышленность',
-  'Телеком',
-  'Медиа',
-  'E‑commerce',
-  'Enterprise IT',
-  'Data & AI',
+const BRAND_KEYS = [
+  'b2bFintech',
+  'retail',
+  'industry',
+  'telecom',
+  'media',
+  'ecommerce',
+  'enterpriseIt',
+  'dataAi',
 ];
 
 function LogoCell({ label }) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.06 }}
-      transition={{ type: 'spring', stiffness: 500, damping: 24 }}
-      className="flex h-12 shrink-0 items-center justify-center px-8"
-    >
-      <span className="whitespace-nowrap text-sm font-semibold tracking-tight text-mineshaft-300 md:text-base">
+    <div className="flex h-12 shrink-0 items-center justify-center px-8">
+      <span className="whitespace-nowrap text-sm font-semibold tracking-tight text-mineshaft-300 transition-colors duration-300 hover:text-ifi-fg md:text-base">
         {label}
       </span>
-    </motion.div>
+    </div>
   );
 }
 
 export default function TechMarqueeStrip() {
+  const { t } = useTranslation();
+  const brands = useMemo(
+    () => BRAND_KEYS.map((k) => t(`marquee.${k}`)),
+    [t]
+  );
   return (
     <section className="border-y border-ifi-border bg-mineshaft-900/35 py-8">
       <motion.p
@@ -38,10 +39,10 @@ export default function TechMarqueeStrip() {
         transition={{ duration: 0.4 }}
         className="mb-6 text-center text-xs font-medium uppercase tracking-[0.14em] text-mineshaft-400"
       >
-        Опыт работы с крупным бизнесом и сложными контурами
+        {t('marquee.caption')}
       </motion.p>
       <Marquee pauseOnHover className="[--duration:50s] [--gap:0.5rem]">
-        {BRANDS.map((label) => (
+        {brands.map((label) => (
           <LogoCell key={label} label={label} />
         ))}
       </Marquee>

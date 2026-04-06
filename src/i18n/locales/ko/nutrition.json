@@ -1,0 +1,19 @@
+{
+  "title": "AI 영양 관리 앱",
+  "subtitle": "식단·활동 분석 AI 애플리케이션",
+  "functionality": "기능",
+  "tech": "기술 구현",
+  "items": [
+    "사진 기반 칼로리·영양소 계산",
+    "식단 일지",
+    "수분·운동 기록",
+    "사용자 행동 분석",
+    "참여·경쟁 요소"
+  ],
+  "stack": [
+    { "label": "Frontend", "value": "Vite" },
+    { "label": "DB", "value": "Supabase" },
+    { "label": "로직", "value": "n8n + AI" },
+    { "label": "플랫폼", "value": "텔레그램 미니앱" }
+  ]
+}

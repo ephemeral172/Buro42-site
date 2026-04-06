@@ -1,0 +1,36 @@
+{
+  "title": "SEO Fair AI",
+  "subtitle": "An AI platform for industrial‑grade SEO content generation",
+  "techTitle": "Technology stack",
+  "expandTitle": "Implementation details",
+  "architectureHeading": "Architecture",
+  "workflowHeading": "Workflow",
+  "resultsHeading": "Outcomes",
+  "footer": "Controlled, reproducible AI without a black box",
+  "features": [
+    "Automated SERP and competitor analysis",
+    "AI generation of SEO structure and copy",
+    "Managed pipeline with explicit state tracking",
+    "Regenerate any element independently"
+  ],
+  "stack": [
+    { "label": "Frontend", "value": "React + Vite" },
+    { "label": "AI Orchestration", "value": "n8n" },
+    { "label": "Backend", "value": "Supabase + PostgreSQL" },
+    { "label": "AI Models", "value": "Gemini via OpenRouter" }
+  ],
+  "architecture": [
+    "Three independent layers: Frontend, AI orchestration, Backend",
+    "Task state machine with explicit transitions",
+    "Stepwise generation with human intervention at every stage"
+  ],
+  "workflow": [
+    "SERP analysis via PixelPlus → competitor parsing → outline → body copy",
+    "Each step is stored in the DB; partial regeneration is possible. Task status polling via TanStack Query"
+  ],
+  "results": [
+    "Industrial SEO generation without a black box",
+    "Full control at every stage",
+    "Scale without rewriting the architecture"
+  ]
+}

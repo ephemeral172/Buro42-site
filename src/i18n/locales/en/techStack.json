@@ -1,0 +1,70 @@
+{
+  "label": "Stack",
+  "footer": "Pragmatic technology choices for your workloads and team",
+  "categories": [
+    {
+      "title": "Languages & backend",
+      "items": [
+        "Python (Pandas, NumPy, GeoPandas)",
+        "Node.js",
+        "TypeScript",
+        "SQL"
+      ]
+    },
+    {
+      "title": "Frontend",
+      "items": [
+        "React",
+        "Vue.js",
+        "Next.js",
+        "Vite",
+        "Interactive web apps and dashboards"
+      ]
+    },
+    {
+      "title": "Databases",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "Vector DBs: Qdrant, pgvector, Weaviate"
+      ]
+    },
+    {
+      "title": "AI & ML",
+      "items": [
+        "LLM (Claude, GPT, on‑prem models)",
+        "RAG systems",
+        "AI agents",
+        "LangChain",
+        "PyTorch",
+        "Transformers (Hugging Face)"
+      ]
+    },
+    {
+      "title": "Integrations & workflow",
+      "items": [
+        "REST API",
+        "GraphQL",
+        "WebSocket",
+        "Message brokers (RabbitMQ, etc.)",
+        "FastAPI",
+        "n8n"
+      ]
+    },
+    {
+      "title": "Data visualization",
+      "items": ["Apache Superset", "Grafana", "Custom web dashboards"]
+    },
+    {
+      "title": "Infrastructure",
+      "items": [
+        "Docker",
+        "Linux servers",
+        "Cloud platforms (AWS, etc.)",
+        "On‑premise deployment"
+      ]
+    }
+  ]
+}

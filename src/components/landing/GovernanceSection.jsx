@@ -1,25 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { AnimatedLimeDot } from '@/components/landing/AnimatedLimeDot';
-
-const cards = [
-  {
-    title: 'Аудит и прозрачность',
-    text: 'Фиксация изменений, логирование критичных операций и отчётность для ИБ.',
-  },
-  {
-    title: 'Контроль доступа',
-    text: 'Роли, политики и разграничение для людей и сервисных учётных записей.',
-  },
-  {
-    title: 'Согласование изменений',
-    text: 'Понятные этапы внедрения и приёмки — в том числе для чувствительных контуров.',
-  },
-  {
-    title: 'Временный доступ',
-    text: 'Ограниченные окна доступа к средам и данным с автоматическим отзывом по политике.',
-  },
-];
 
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -31,6 +13,8 @@ const cardVariants = {
 };
 
 export default function GovernanceSection() {
+  const { t } = useTranslation();
+  const cards = useMemo(() => t('governance.cards', { returnObjects: true }), [t]);
   return (
     <section className="border-y border-ifi-border bg-mineshaft-900/35 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
@@ -41,22 +25,22 @@ export default function GovernanceSection() {
           transition={{ duration: 0.45 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">Управление и ИБ</h2>
-          <p className="mt-4 text-lg text-mineshaft-400">
-            Принципы в духе enterprise SaaS: минимизация рисков и предсказуемость для вашей команды.
-          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ifi-fg md:text-4xl">
+            {t('governance.title')}
+          </h2>
+          <p className="mt-4 text-lg text-mineshaft-400">{t('governance.subtitle')}</p>
         </motion.div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {cards.map((c, i) => (
             <motion.div
-              key={c.title}
+              key={`${c.title}-${i}`}
               custom={i}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: '-8% 0px' }}
               variants={cardVariants}
-              whileHover={{ y: -2, transition: { type: 'spring', stiffness: 420, damping: 26 } }}
+              whileHover={{ y: -3, transition: { type: 'spring', stiffness: 420, damping: 26 } }}
               className="group/dot relative overflow-hidden rounded-xl border border-ifi-border bg-gradient-to-b from-mineshaft-800/45 to-mineshaft-900/85 p-6 shadow-[0_-20px_48px_-16px_rgba(0,0,0,0.35)] backdrop-blur-[2px] transition-colors duration-300 hover:border-ifi-lime/25 md:p-7"
             >
               <div

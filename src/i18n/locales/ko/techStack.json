@@ -1,0 +1,70 @@
+{
+  "label": "스택",
+  "footer": "부하와 고객 팀에 맞는 실용적 기술 선택",
+  "categories": [
+    {
+      "title": "언어·백엔드",
+      "items": [
+        "Python (Pandas, NumPy, GeoPandas)",
+        "Node.js",
+        "TypeScript",
+        "SQL"
+      ]
+    },
+    {
+      "title": "프론트엔드",
+      "items": [
+        "React",
+        "Vue.js",
+        "Next.js",
+        "Vite",
+        "대화형 웹앱·대시보드"
+      ]
+    },
+    {
+      "title": "데이터베이스",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "벡터 DB: Qdrant, pgvector, Weaviate"
+      ]
+    },
+    {
+      "title": "AI·ML",
+      "items": [
+        "LLM (Claude, GPT, 온프레미스 모델)",
+        "RAG 시스템",
+        "AI 에이전트",
+        "LangChain",
+        "PyTorch",
+        "Transformers (Hugging Face)"
+      ]
+    },
+    {
+      "title": "연동·워크플로",
+      "items": [
+        "REST API",
+        "GraphQL",
+        "WebSocket",
+        "메시지 브로커 (RabbitMQ 등)",
+        "FastAPI",
+        "n8n"
+      ]
+    },
+    {
+      "title": "데이터 시각화",
+      "items": ["Apache Superset", "Grafana", "커스텀 웹 대시보드"]
+    },
+    {
+      "title": "인프라",
+      "items": [
+        "Docker",
+        "Linux 서버",
+        "클라우드(AWS 등)",
+        "온프레미스 배포"
+      ]
+    }
+  ]
+}

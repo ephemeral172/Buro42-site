@@ -1,0 +1,70 @@
+{
+  "label": "Стек",
+  "footer": "Прагматичный выбор технологий под нагрузку и команду заказчика",
+  "categories": [
+    {
+      "title": "Языки и backend",
+      "items": [
+        "Python (Pandas, NumPy, GeoPandas)",
+        "Node.js",
+        "TypeScript",
+        "SQL"
+      ]
+    },
+    {
+      "title": "Frontend",
+      "items": [
+        "React",
+        "Vue.js",
+        "Next.js",
+        "Vite",
+        "Интерактивные веб-приложения и дашборды"
+      ]
+    },
+    {
+      "title": "Базы данных",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "Векторные БД: Qdrant, pgvector, Weaviate"
+      ]
+    },
+    {
+      "title": "ИИ и ML",
+      "items": [
+        "LLM (Claude, GPT, локальные модели)",
+        "RAG-системы",
+        "ИИ-агенты",
+        "LangChain",
+        "PyTorch",
+        "Transformers (Hugging Face)"
+      ]
+    },
+    {
+      "title": "Интеграции и workflow",
+      "items": [
+        "REST API",
+        "GraphQL",
+        "WebSocket",
+        "Брокеры сообщений (RabbitMQ и др.)",
+        "FastAPI",
+        "n8n"
+      ]
+    },
+    {
+      "title": "Визуализация данных",
+      "items": ["Apache Superset", "Grafana", "Кастомные веб-дашборды"]
+    },
+    {
+      "title": "Инфраструктура",
+      "items": [
+        "Docker",
+        "Linux-серверы",
+        "Облачные платформы (AWS и др.)",
+        "On‑premise развёртывание"
+      ]
+    }
+  ]
+}

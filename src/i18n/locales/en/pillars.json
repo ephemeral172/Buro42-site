@@ -1,0 +1,61 @@
+{
+  "ai": {
+    "title": "AI and machine learning",
+    "body": "LLM, RAG, and applied ML in production: data vectorization and pipelines, answer quality, prompt versions, observability, and cost control for API calls.",
+    "learnLabel": "View cases",
+    "panels": [
+      {
+        "label": "LLM & RAG in production",
+        "detail": "Chunking, embeddings, index refresh, prompt versioning, caching, offline evaluation, and safeguards against leakage in responses."
+      },
+      {
+        "label": "Observability and cost",
+        "detail": "Request tracing, quotas, spike analysis, and transparent token accounting by service."
+      },
+      {
+        "label": "Data perimeter and security",
+        "detail": "Index isolation, access policies, audit trails, and alignment with your security standards."
+      }
+    ]
+  },
+  "data": {
+    "title": "Data and Big Data",
+    "body": "Pipelines and storage: from unstructured corpora to search, analytics, and services with predictable SLAs.",
+    "learnLabel": "Examples",
+    "tryLabel": "Discuss architecture",
+    "panels": [
+      {
+        "label": "Pipelines and data quality",
+        "detail": "ETL/ELT, schema contracts, freshness monitoring, and anomaly control in streams."
+      },
+      {
+        "label": "Storage under load",
+        "detail": "Lakehouse, partitioning, tiering, and redundancy sized to your volumes and query patterns."
+      },
+      {
+        "label": "SLAs for consumers",
+        "detail": "Dataset APIs, queues, limits, and clear SLOs for delivery and interactive analytics."
+      }
+    ]
+  },
+  "sec": {
+    "title": "Integrations and access",
+    "body": "Fit into your landscape: API, SSO, on‑prem and cloud, roles, audit, and information security requirements.",
+    "learnLabel": "Integrations",
+    "tryLabel": "Contact us",
+    "panels": [
+      {
+        "label": "APIs and events",
+        "detail": "REST/gRPC, webhooks, and message buses — without a single point of failure in integration."
+      },
+      {
+        "label": "Identity and roles",
+        "detail": "SSO, RBAC, delegation, and alignment with corporate IAM."
+      },
+      {
+        "label": "Audit and compliance",
+        "detail": "Access logs, action traceability, and artifacts for security reviews and internal control."
+      }
+    ]
+  }
+}

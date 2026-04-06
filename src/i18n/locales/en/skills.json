@@ -1,0 +1,19 @@
+{
+  "label": "Capabilities",
+  "intro": "Focused on enterprise products: data, AI, and reliable operations.",
+  "titles": [
+    "AI and full-stack platform engineering",
+    "Data architecture and high-load backend",
+    "Integrations, APIs, and corporate scenarios",
+    "LLM, RAG, and applied ML orchestration",
+    "Services, queues, and production-grade boundaries",
+    "Pipeline automation and observability",
+    "Security, roles, and customer policy alignment"
+  ],
+  "statProfile": "Profile",
+  "statProfileValue": "ENTERPRISE",
+  "statDomains": "Domains",
+  "statDelivery": "Delivery",
+  "statDomainsValue": "AI · DATA",
+  "statDeliveryValue": "TURNKEY"
+}

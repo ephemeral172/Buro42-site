@@ -1,0 +1,44 @@
+{
+  "title": "기업용 RAG 플랫폼",
+  "introBefore": "구조화·비구조화 빅데이터를 AI로 다루는 확장 가능한 기업 솔루션입니다. RAG는 비용이 큰 파인튜닝 없이 최신 지식에 기반해 추론합니다. 프로젝트:",
+  "introAfter": ".",
+  "cta": "프로젝트 사이트",
+  "techTitle": "기술 스택",
+  "expandTitle": "아키텍처·구현",
+  "challengesHeading": "과제",
+  "implementationHeading": "기술 접근",
+  "businessHeading": "비즈니스 효과",
+  "footerQuote": "모델 학습 대신 아키텍처를 ‘학습’합니다. RabbitMQ로 큐, Qdrant로 벡터 검색을 두어 수평 확장과 복원력을 확보합니다.",
+  "features": [
+    "파인튜닝 대신 맥락 추론",
+    "벡터 DB(Qdrant/Weaviate)·의미 검색",
+    "RabbitMQ 비동기 처리",
+    "데이터 완전 통제(온프레미스/프라이빗 클라우드)"
+  ],
+  "stack": [
+    { "label": "AI / ML", "value": "Claude Opus, Gemini 3, GPT 5.2 Pro, Llama 3.1, Mistral Large" },
+    { "label": "Vector Storage", "value": "Qdrant / Weaviate / PGVector" },
+    { "label": "Message Broker", "value": "RabbitMQ (Celery/Aio-pika)" },
+    { "label": "Infrastructure", "value": "FastAPI, Docker" }
+  ],
+  "problems": [
+    "전통적 파인튜닝의 높은 GPU 비용",
+    "데이터 변화 시 모델 유지·재학습 부담",
+    "규칙 변경 적응·환각 문제",
+    "벤더 종속·데이터 보안 리스크"
+  ],
+  "solutions": [
+    "레이어 분리: Reasoning(LLM), Knowledge(벡터 DB), Orchestration(RabbitMQ)",
+    "문맥 보존을 위한 시맨틱 청킹",
+    "벡터·전문 검색 하이브리드로 정확도 향상",
+    "메시지 브로커로 대용량 문서 비동기 파이프라인",
+    "버전 관리되는 프롬프트 시나리오"
+  ],
+  "effectLabels": ["비용 절감", "적응", "규모"],
+  "effectValues": ["33%", "즉시", "1000+"],
+  "effectDescs": [
+    "연간 TCO 감소",
+    "재학습 없이 로직 갱신",
+    "일일 리뷰·문서 처리량"
+  ]
+}
