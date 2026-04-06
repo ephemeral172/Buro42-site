@@ -12,52 +12,86 @@ import {
   Sparkles,
   Inbox,
   Brain,
+  LayoutDashboard,
+  ChartColumn,
+  Activity,
+  Radio,
+  Braces,
+  Bot,
+  Plug,
+  Workflow,
+  Table,
+  Terminal,
+  Layers,
 } from 'lucide-react';
 
 const techCategories = [
   {
+    title: 'Языки и backend',
+    techs: [
+      { name: 'Python (Pandas, NumPy, GeoPandas)', icon: FileCode },
+      { name: 'Node.js', icon: Server },
+      { name: 'TypeScript', icon: Code2 },
+      { name: 'SQL', icon: Table },
+    ],
+  },
+  {
     title: 'Frontend',
     techs: [
       { name: 'React', icon: Code2 },
+      { name: 'Vue.js', icon: Layers },
       { name: 'Next.js', icon: Zap },
       { name: 'Vite', icon: Zap },
+      { name: 'Интерактивные веб-приложения и дашборды', icon: LayoutDashboard },
     ],
   },
   {
-    title: 'Backend & API',
-    techs: [
-      { name: 'FastAPI', icon: FileCode },
-      { name: 'Node.js', icon: Server },
-      { name: 'TypeScript', icon: Code2 },
-      { name: 'Python', icon: FileCode },
-      { name: 'RabbitMQ', icon: Inbox },
-    ],
-  },
-  {
-    title: 'Data & хранилища',
+    title: 'Базы данных',
     techs: [
       { name: 'PostgreSQL', icon: Database },
-      { name: 'Redis', icon: Database },
+      { name: 'MySQL', icon: Database },
       { name: 'MongoDB', icon: Database },
+      { name: 'Redis', icon: Database },
+      { name: 'Векторные БД: Qdrant, pgvector, Weaviate', icon: Database },
     ],
   },
   {
-    title: 'AI & автоматизация',
+    title: 'ИИ и ML',
     techs: [
-      { name: 'OpenAI API', icon: Sparkles },
-      { name: 'LLM / RAG', icon: Cpu },
-      {
-        name: 'Transformers (Hugging Face)',
-        icon: Brain,
-      },
-      { name: 'n8n', icon: Cpu },
+      { name: 'LLM (Claude, GPT, локальные модели)', icon: Sparkles },
+      { name: 'RAG-системы', icon: Cpu },
+      { name: 'ИИ-агенты', icon: Bot },
+      { name: 'LangChain', icon: Workflow },
+      { name: 'PyTorch', icon: Brain },
+      { name: 'Transformers (Hugging Face)', icon: Brain },
     ],
   },
   {
-    title: 'DevOps & инфраструктура',
+    title: 'Интеграции и workflow',
+    techs: [
+      { name: 'REST API', icon: Plug },
+      { name: 'GraphQL', icon: Braces },
+      { name: 'WebSocket', icon: Radio },
+      { name: 'Брокеры сообщений (RabbitMQ и др.)', icon: Inbox },
+      { name: 'FastAPI', icon: FileCode },
+      { name: 'n8n', icon: Workflow },
+    ],
+  },
+  {
+    title: 'Визуализация данных',
+    techs: [
+      { name: 'Apache Superset', icon: ChartColumn },
+      { name: 'Grafana', icon: Activity },
+      { name: 'Кастомные веб-дашборды', icon: LayoutDashboard },
+    ],
+  },
+  {
+    title: 'Инфраструктура',
     techs: [
       { name: 'Docker', icon: Box },
-      { name: 'AWS', icon: Cloud },
+      { name: 'Linux-серверы', icon: Terminal },
+      { name: 'Облачные платформы (AWS и др.)', icon: Cloud },
+      { name: 'On‑premise развёртывание', icon: Server },
     ],
   },
 ];

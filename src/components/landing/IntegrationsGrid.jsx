@@ -3,15 +3,28 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const tools = [
-  'Docker',
-  'PostgreSQL',
-  'Redis',
-  'FastAPI',
+  'Python',
+  'TypeScript',
+  'Node.js',
   'React',
+  'Vue.js',
+  'PostgreSQL',
+  'MySQL',
+  'MongoDB',
+  'Redis',
+  'Qdrant',
+  'FastAPI',
+  'Docker',
+  'RabbitMQ',
+  'REST API',
+  'GraphQL',
+  'WebSocket',
+  'LangChain',
+  'n8n',
+  'Grafana',
+  'Apache Superset',
   'OpenAI API',
   'Hugging Face',
-  'n8n',
-  'RabbitMQ',
 ];
 
 const itemVariants = {
