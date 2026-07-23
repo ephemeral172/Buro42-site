@@ -15,6 +15,7 @@ import VibeCodingSection from '../components/case/VibeCodingSection';
 import SkillsSection from '../components/case/SkillsSection';
 import TechStackSection from '../components/case/TechStackSection';
 import ShadowGPTSection from '../components/case/ShadowGPTSection';
+import HiremiSection from '../components/case/HiremiSection';
 import SEOMagicSection from '../components/case/SEOMagicSection';
 import RAGPlatformSection from '../components/case/RAGPlatformSection';
 import NutritionAppSection from '../components/case/NutritionAppSection';
@@ -49,7 +50,7 @@ export default function Home() {
         <SkillsSection />
         <TechStackSection />
         <CasesSectionHeader />
-        {/* Единый фон для двух кейсов — без столкновения пастельных градиентов и полупрозрачных слоёв. */}
+        {/* Единый фон для продуктовых кейсов — без столкновения пастельных градиентов и полупрозрачных слоёв. */}
         <div className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,237,52,0.055),transparent_55%)]"
@@ -57,6 +58,13 @@ export default function Home() {
           />
           <div className="relative z-10">
             <ShadowGPTSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
+            <HiremiSection />
             <div className="mx-auto max-w-6xl px-4">
               <div
                 className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"

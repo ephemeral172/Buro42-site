@@ -18,6 +18,7 @@ import vibe from './vibe.json';
 import skills from './skills.json';
 import techStack from './techStack.json';
 import shadowgpt from './shadowgpt.json';
+import hiremi from './hiremi.json';
 import seoMagic from './seoMagic.json';
 import rag from './rag.json';
 import nutrition from './nutrition.json';
@@ -44,6 +45,7 @@ export default {
   skills,
   techStack,
   shadowgpt,
+  hiremi,
   seoMagic,
   rag,
   nutrition,

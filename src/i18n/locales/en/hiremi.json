@@ -1,0 +1,22 @@
+{
+  "title": "Hiremi",
+  "introBefore": "An AI recruiter inside Bitrix24: ranks hh.ru application volume, resurfaces ready candidates from your CRM, and replies from the card. Product:",
+  "introAfter": ".",
+  "cta": "Open product",
+  "techTitle": "What's inside",
+  "features": [
+    "Ranks applications with a score, A/B/C tiers, and a clear verdict: what fits, what's missing, what blocks the hire.",
+    "Own CRM first: for a new role, surfaces top candidates you already know — without fresh sourcing.",
+    "hh.ru chats from the Bitrix24 card: messaging and reply templates where decisions happen.",
+    "An AI layer on Bitrix — not another ATS and not a Huntflow replacement: triage the flood and reuse your talent pool.",
+    "Onboarding under 3 minutes: install in Bitrix24 and hh OAuth with zero manual field mapping.",
+    "Applications collect themselves — recruiters call the top of the list first instead of drowning in filters."
+  ],
+  "stack": [
+    { "label": "Platform", "value": "Bitrix24 Marketplace app" },
+    { "label": "Source", "value": "hh.ru OAuth and application feed" },
+    { "label": "AI", "value": "Score, A/B/C tiers, explanations" },
+    { "label": "CRM", "value": "Reuse of the Bitrix talent pool" }
+  ],
+  "footer": "Hiremi · AI recruiting in Bitrix24 without another ATS"
+}
