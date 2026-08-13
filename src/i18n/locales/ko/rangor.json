@@ -1,22 +1,22 @@
 {
   "title": "Rangor",
-  "introBefore": "PR은 리뷰를 통과했는데도 3주 전 결정과 충돌합니다. Rangor는 연결된 모든 PR에 가드를 걸고, Jira·Confluence·Slack에서 에이전트용 브리핑을 준비합니다. 제품:",
+  "introBefore": "팀이 합의한 결정이 있어도, 몇 주 뒤 코드는 다시 예전 방식으로 갑니다. Rangor는 Jira·Confluence·Slack에서 중요한 내용을 모으고, 합의와 어긋나는 변경을 미리 알려줍니다. 제품:",
   "introAfter": ".",
-  "cta": "팀 연결하기",
-  "techTitle": "팀이 얻는 것",
+  "cta": "제품 열기",
+  "techTitle": "비즈니스에 주는 가치",
   "features": [
-    "merge 전에 비싼 실수를 잡습니다: 합의된 결정을 깨는 PR에 GitHub Check Run.",
-    "에이전트가 눈먼 채로 일하지 않습니다: 사실·리스크·변경점 — 다섯 탭 사냥 대신 하나의 브리핑.",
-    "Cursor·Sidebar·ChatGPT·Claude에서 같은 패키지: 컨텍스트는 한 번, 사용은 어디서나.",
-    "티켓마다 시간을 돌려받습니다: 복사·붙여넣기 대신 provenance 있는 순위화된 must-know.",
-    "갈등은 숨기지 않습니다: 아직 논쟁 중인 것과 이미 결정된 것이 보입니다.",
-    "실제 업무로 더 똑똑해집니다: usage receipt가 검색 노이즈가 아니라 팀이 인용한 사실을 올립니다."
+    "비싼 재작업을 줄입니다: 이미 정한 결정과 충돌하는 작업을 미리 표시합니다.",
+    "열린 탭 다섯 개 대신 하나의 브리핑: 핵심, 리스크, 바뀐 점.",
+    "개발자가 이미 쓰는 도구에서 같은 맥락 — 채팅·문서 사이 복사·붙여넣기 없음.",
+    "이슈마다 시간 절약: 흩어진 대화에서 히스토리를 다시 모을 필요가 없습니다.",
+    "아직 논쟁 중인 것과 이미 결정된 것이 한눈에 보입니다.",
+    "시간이 갈수록 힌트가 더 정확해집니다 — 과거에 실제로 도움이 된 내용을 기준으로."
   ],
   "stack": [
-    { "label": "보호", "value": "PR Context Guard" },
+    { "label": "통제", "value": "배포 전 결정 점검" },
     { "label": "속도", "value": "수초 브리핑" },
-    { "label": "사용처", "value": "GitHub · Cursor · Sidebar" },
+    { "label": "사용처", "value": "GitHub·AI 도구" },
     { "label": "소스", "value": "Jira · Confluence · Slack" }
   ],
-  "footer": "Rangor · 눈먼 에이전트↓ merge 서프라이즈↓"
+  "footer": "Rangor · 팀 결정이 채팅 속에 묻히지 않습니다"
 }

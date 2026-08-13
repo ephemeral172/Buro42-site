@@ -1,22 +1,22 @@
 {
   "title": "Rangor",
-  "introBefore": "Your PR passed review — and still contradicts a decision from three weeks ago. Rangor guards every linked PR and hands your agent a ready brief from Jira, Confluence, and Slack. Product:",
+  "introBefore": "The team agreed on a decision — three weeks later the code goes the old way again. Rangor pulls what matters from Jira, Confluence, and Slack and warns when a change fights those agreements. Product:",
   "introAfter": ".",
-  "cta": "Connect your team",
-  "techTitle": "What your team gains",
+  "cta": "Open product",
+  "techTitle": "What business gets",
   "features": [
-    "Catch expensive mistakes before merge: a GitHub Check Run when a PR breaks an agreed decision.",
-    "Your agent stops working blind: one briefing — facts, risks, and what changed — instead of five-tab hunting.",
-    "Same package in Cursor, Sidebar, ChatGPT, and Claude: gather context once, use it everywhere.",
-    "Hours back on every ticket: ranked must-know with provenance instead of copy-paste archaeology.",
-    "Conflicts stay visible: see what’s still disputed — and what’s already decided.",
-    "Gets smarter from real work: usage receipts boost what your team actually cites, not search noise."
+    "Fewer costly reworks: it flags when new work contradicts decisions already made.",
+    "One clear brief instead of five open tabs: what matters, the risks, and what changed.",
+    "The same context in the tools your engineers already use — no manual copy-paste across chats and docs.",
+    "Time back on every task: no rebuilding the story from scattered threads.",
+    "See at a glance what’s still debated — and what’s already decided.",
+    "Hints get sharper over time — based on what actually helped on past work."
   ],
   "stack": [
-    { "label": "Protection", "value": "Context Guard on PRs" },
+    { "label": "Control", "value": "Decision checks before release" },
     { "label": "Speed", "value": "Brief in seconds" },
-    { "label": "Where it lives", "value": "GitHub · Cursor · Sidebar" },
+    { "label": "Where it lives", "value": "GitHub and AI tools" },
     { "label": "Sources", "value": "Jira · Confluence · Slack" }
   ],
-  "footer": "Rangor · fewer blind agents, fewer merge surprises"
+  "footer": "Rangor · team decisions don’t get lost in chat"
 }
