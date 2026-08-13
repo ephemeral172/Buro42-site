@@ -2,6 +2,7 @@
 <html lang="ru" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Light theme paused — keep dark only
     <script>
       (function () {
         try {
@@ -17,6 +18,12 @@
           }
         } catch (e) {}
       })();
+    </script>
+    -->
+    <script>
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      document.documentElement.style.colorScheme = 'dark';
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

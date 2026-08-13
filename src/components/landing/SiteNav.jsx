@@ -4,7 +4,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import BrandMark from '@/components/landing/BrandMark';
 import LanguageSwitcher from '@/components/landing/LanguageSwitcher';
-import ThemeToggle from '@/components/landing/ThemeToggle';
+// Light theme paused — uncomment to re-enable toggle
+// import ThemeToggle from '@/components/landing/ThemeToggle';
 
 const linkDefs = [
   { href: '#platform', key: 'platform' },
@@ -107,7 +108,7 @@ export default function SiteNav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <LanguageSwitcher className="mr-1" />
           <a
             href="#cases"
@@ -124,7 +125,7 @@ export default function SiteNav() {
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <motion.button
             type="button"
             className="relative rounded-lg p-2 text-mineshaft-300"
@@ -189,7 +190,7 @@ export default function SiteNav() {
               animate="visible"
             >
               <div className="mb-2 flex items-center justify-center gap-2 px-3">
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
                 <LanguageSwitcher />
               </div>
               {links.map((l) => (

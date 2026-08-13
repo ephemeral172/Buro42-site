@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useSyncExternalStore } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { getTheme, subscribeTheme } from '@/theme';
+// Light theme paused — restore theme subscription with ThemeToggle
+// import { useSyncExternalStore } from 'react';
+// import { getTheme, subscribeTheme } from '@/theme';
 
 const VANTA_BG = {
   dark: 0x19191c,
@@ -71,7 +73,8 @@ export default function VantaTopologyBg({
 }) {
   const elRef = useRef(null);
   const vantaRef = useRef(null);
-  const theme = useSyncExternalStore(subscribeTheme, getTheme, () => 'dark');
+  // const theme = useSyncExternalStore(subscribeTheme, getTheme, () => 'dark');
+  const theme = 'dark';
 
   useEffect(() => {
     if (disabled || typeof window === 'undefined') return;
