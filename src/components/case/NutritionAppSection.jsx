@@ -57,7 +57,7 @@ export default function NutritionAppSection() {
               href="https://t.me/Eva_fitbot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 bg-ifi-lime text-mineshaft-900 px-6 py-3 rounded-full font-semibold shadow-sm hover:bg-ifi-lime-hover transition-colors duration-300"
+              className="inline-flex items-center gap-2 mt-4 bg-ifi-lime text-ifi-ink px-6 py-3 rounded-full font-semibold shadow-sm hover:bg-ifi-lime-hover transition-colors duration-300"
             >
               <Smartphone className="w-5 h-5" />
               @Eva_fitbot

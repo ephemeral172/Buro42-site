@@ -19,10 +19,12 @@ import skills from './skills.json';
 import techStack from './techStack.json';
 import shadowgpt from './shadowgpt.json';
 import hiremi from './hiremi.json';
+import wylo from './wylo.json';
+import rangor from './rangor.json';
+import ucp from './ucp.json';
 import seoMagic from './seoMagic.json';
 import rag from './rag.json';
 import nutrition from './nutrition.json';
-import runa from './runa.json';
 
 export default {
   meta,
@@ -46,8 +48,10 @@ export default {
   techStack,
   shadowgpt,
   hiremi,
+  wylo,
+  rangor,
+  ucp,
   seoMagic,
   rag,
   nutrition,
-  runa,
 };

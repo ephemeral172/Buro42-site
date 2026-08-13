@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import BrandMark from '@/components/landing/BrandMark';
 import LanguageSwitcher from '@/components/landing/LanguageSwitcher';
+import ThemeToggle from '@/components/landing/ThemeToggle';
 
 const linkDefs = [
   { href: '#platform', key: 'platform' },
@@ -106,6 +107,7 @@ export default function SiteNav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <LanguageSwitcher className="mr-1" />
           <a
             href="#cases"
@@ -115,42 +117,45 @@ export default function SiteNav() {
           </a>
           <a
             href="#contact"
-            className="inline-flex h-9 items-center justify-center rounded-md bg-ifi-lime px-3 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
+            className="inline-flex h-9 items-center justify-center rounded-md bg-ifi-lime px-3 text-sm font-semibold text-ifi-ink transition hover:bg-ifi-lime-hover"
           >
             {t('nav.ctaContact')}
           </a>
         </div>
 
-        <motion.button
-          type="button"
-          className="relative rounded-lg p-2 text-mineshaft-300 md:hidden"
-          aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          whileTap={{ scale: 0.92 }}
-          transition={{ type: 'spring', stiffness: 500, damping: 28 }}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={open ? 'close' : 'open'}
-              initial={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, rotate: -75, scale: 0.85 }
-              }
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, rotate: 75, scale: 0.85 }
-              }
-              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="flex"
-            >
-              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </motion.span>
-          </AnimatePresence>
-        </motion.button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <motion.button
+            type="button"
+            className="relative rounded-lg p-2 text-mineshaft-300"
+            aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: 'spring', stiffness: 500, damping: 28 }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={open ? 'close' : 'open'}
+                initial={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, rotate: -75, scale: 0.85 }
+                }
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, rotate: 75, scale: 0.85 }
+                }
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="flex"
+              >
+                {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </motion.span>
+            </AnimatePresence>
+          </motion.button>
+        </div>
       </div>
 
       <AnimatePresence initial={false}>
@@ -170,7 +175,7 @@ export default function SiteNav() {
             }
             transition={panelTransition}
             style={{ transformOrigin: 'top' }}
-            className="overflow-hidden border-t border-ifi-lime/25 bg-ifi-card/95 shadow-[0_28px_56px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-ifi-lime/25 bg-ifi-card/95 shadow-[0_28px_56px_-20px_rgba(0,0,0,0.55)] light:shadow-[0_28px_56px_-20px_rgba(17,20,25,0.12)] backdrop-blur-xl md:hidden"
           >
             <motion.nav
               className="flex flex-col gap-1 px-4 py-5"
@@ -183,7 +188,8 @@ export default function SiteNav() {
               initial="hidden"
               animate="visible"
             >
-              <div className="mb-2 flex justify-center px-3">
+              <div className="mb-2 flex items-center justify-center gap-2 px-3">
+                <ThemeToggle />
                 <LanguageSwitcher />
               </div>
               {links.map((l) => (
@@ -201,7 +207,7 @@ export default function SiteNav() {
               <motion.a
                 href="#contact"
                 variants={reduceMotion ? ctaInstant : ctaVariants}
-                className="mt-3 rounded-full bg-ifi-lime py-3 text-center text-sm font-semibold text-mineshaft-900 shadow-[0_0_24px_-4px_rgba(224,237,52,0.35)] transition hover:bg-ifi-lime-hover"
+                className="mt-3 rounded-full bg-ifi-lime py-3 text-center text-sm font-semibold text-ifi-ink shadow-[0_0_24px_-4px_rgba(224,237,52,0.35)] transition hover:bg-ifi-lime-hover"
                 onClick={() => setOpen(false)}
                 whileTap={{ scale: 0.98 }}
               >

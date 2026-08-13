@@ -1,0 +1,22 @@
+{
+  "title": "Wylo",
+  "introBefore": "Stop losing projects in chat. Wylo turns files, timelines, and owners into one client portal — they open a link and see the current version. No signup. No “send it again.” Product:",
+  "introAfter": ".",
+  "cta": "Build your first project",
+  "techTitle": "Why clients trust you more",
+  "features": [
+    "Look sharp from the first screen: contracts, estimates, references, and stages — organized, not scattered across Telegram and email.",
+    "Clients stop asking “where’s the file?”: one lasting link, always the latest version, no account and no onboarding.",
+    "AI does the boring part: drop a pile of files — get section suggestions and a roadmap draft you confirm.",
+    "Nothing leaks early: polish the portal in draft, publish only when you’re ready.",
+    "Your brand on the portal: logo, custom address, password — they see you, not someone else’s product.",
+    "Live in one evening: free beta, no card — prove it on a real project while others are still zipping archives."
+  ],
+  "stack": [
+    { "label": "Built for", "value": "Studios · agencies · contractors" },
+    { "label": "Outcome", "value": "Less chaos, more trust" },
+    { "label": "For clients", "value": "One link — everything clear" },
+    { "label": "Start", "value": "Free while in beta" }
+  ],
+  "footer": "Wylo · sell the delivery, not a 200 MB zip"
+}

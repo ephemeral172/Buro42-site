@@ -1,7 +1,23 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('buro42-theme');
+          if (t === 'light') {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            document.documentElement.style.colorScheme = 'light';
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            document.documentElement.style.colorScheme = 'dark';
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +37,7 @@
       content="Buro42 — лаборатория данных и искусственного интеллекта. IT-продукты для крупного бизнеса: AI, Big Data, ML и интеграции в вашем контуре."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Buro42 — лаборатория данных и искусственного интеллекта" />
     <meta

@@ -1,0 +1,22 @@
+{
+  "title": "Rangor",
+  "introBefore": "PR은 리뷰를 통과했는데도 3주 전 결정과 충돌합니다. Rangor는 연결된 모든 PR에 가드를 걸고, Jira·Confluence·Slack에서 에이전트용 브리핑을 준비합니다. 제품:",
+  "introAfter": ".",
+  "cta": "팀 연결하기",
+  "techTitle": "팀이 얻는 것",
+  "features": [
+    "merge 전에 비싼 실수를 잡습니다: 합의된 결정을 깨는 PR에 GitHub Check Run.",
+    "에이전트가 눈먼 채로 일하지 않습니다: 사실·리스크·변경점 — 다섯 탭 사냥 대신 하나의 브리핑.",
+    "Cursor·Sidebar·ChatGPT·Claude에서 같은 패키지: 컨텍스트는 한 번, 사용은 어디서나.",
+    "티켓마다 시간을 돌려받습니다: 복사·붙여넣기 대신 provenance 있는 순위화된 must-know.",
+    "갈등은 숨기지 않습니다: 아직 논쟁 중인 것과 이미 결정된 것이 보입니다.",
+    "실제 업무로 더 똑똑해집니다: usage receipt가 검색 노이즈가 아니라 팀이 인용한 사실을 올립니다."
+  ],
+  "stack": [
+    { "label": "보호", "value": "PR Context Guard" },
+    { "label": "속도", "value": "수초 브리핑" },
+    { "label": "사용처", "value": "GitHub · Cursor · Sidebar" },
+    { "label": "소스", "value": "Jira · Confluence · Slack" }
+  ],
+  "footer": "Rangor · 눈먼 에이전트↓ merge 서프라이즈↓"
+}

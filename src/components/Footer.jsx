@@ -18,7 +18,7 @@ export default function Footer() {
   );
   const company = useMemo(() => [{ href: '#contact', label: t('nav.contacts') }], [t]);
   return (
-    <footer className="border-t border-ifi-border bg-ifi-bg text-mineshaft-200">
+    <footer className="border-t border-ifi-border bg-ifi-bg text-mineshaft-300">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <motion.div

@@ -55,7 +55,7 @@ export default function MidBanner() {
               transition={{ duration: 0.35, delay: 0.12 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex w-fit items-center gap-1.5 rounded-md bg-ifi-lime px-5 py-2.5 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
+              className="inline-flex w-fit items-center gap-1.5 rounded-md bg-ifi-lime px-5 py-2.5 text-sm font-semibold text-ifi-ink transition hover:bg-ifi-lime-hover"
             >
               {t('midBanner.cta')}
               <ArrowUpRight className="h-4 w-4 shrink-0" />

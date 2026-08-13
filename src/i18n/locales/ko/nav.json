@@ -8,5 +8,7 @@
   "mainNav": "주요 메뉴",
   "mobileNav": "모바일 메뉴",
   "openMenu": "메뉴 열기",
-  "closeMenu": "메뉴 닫기"
+  "closeMenu": "메뉴 닫기",
+  "themeToLight": "라이트 테마로 전환",
+  "themeToDark": "다크 테마로 전환"
 }

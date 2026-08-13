@@ -1,0 +1,22 @@
+{
+  "title": "Rangor",
+  "introBefore": "Your PR passed review — and still contradicts a decision from three weeks ago. Rangor guards every linked PR and hands your agent a ready brief from Jira, Confluence, and Slack. Product:",
+  "introAfter": ".",
+  "cta": "Connect your team",
+  "techTitle": "What your team gains",
+  "features": [
+    "Catch expensive mistakes before merge: a GitHub Check Run when a PR breaks an agreed decision.",
+    "Your agent stops working blind: one briefing — facts, risks, and what changed — instead of five-tab hunting.",
+    "Same package in Cursor, Sidebar, ChatGPT, and Claude: gather context once, use it everywhere.",
+    "Hours back on every ticket: ranked must-know with provenance instead of copy-paste archaeology.",
+    "Conflicts stay visible: see what’s still disputed — and what’s already decided.",
+    "Gets smarter from real work: usage receipts boost what your team actually cites, not search noise."
+  ],
+  "stack": [
+    { "label": "Protection", "value": "Context Guard on PRs" },
+    { "label": "Speed", "value": "Brief in seconds" },
+    { "label": "Where it lives", "value": "GitHub · Cursor · Sidebar" },
+    { "label": "Sources", "value": "Jira · Confluence · Slack" }
+  ],
+  "footer": "Rangor · fewer blind agents, fewer merge surprises"
+}

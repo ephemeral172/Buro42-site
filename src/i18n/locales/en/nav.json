@@ -8,5 +8,7 @@
   "mainNav": "Main navigation",
   "mobileNav": "Mobile menu",
   "openMenu": "Open menu",
-  "closeMenu": "Close menu"
+  "closeMenu": "Close menu",
+  "themeToLight": "Switch to light theme",
+  "themeToDark": "Switch to dark theme"
 }

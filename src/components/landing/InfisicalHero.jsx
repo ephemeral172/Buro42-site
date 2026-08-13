@@ -103,7 +103,7 @@ export default function InfisicalHero() {
             whileHover={reduceMotion ? undefined : { scale: 1.02, y: -1 }}
             whileTap={reduceMotion ? undefined : { scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 450, damping: 22 }}
-            className="inline-flex h-10 min-w-[140px] items-center justify-center rounded-md bg-ifi-lime px-7 text-sm font-semibold text-mineshaft-900 transition hover:bg-ifi-lime-hover"
+            className="inline-flex h-10 min-w-[140px] items-center justify-center rounded-md bg-ifi-lime px-7 text-sm font-semibold text-ifi-ink transition hover:bg-ifi-lime-hover"
           >
             {t('hero.ctaDiscuss')}
           </motion.a>

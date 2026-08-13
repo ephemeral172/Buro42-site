@@ -7,16 +7,15 @@ import ko from './locales/ko/index.js';
 export const STORAGE_KEY = 'buro42-lang';
 
 function detectLng() {
+  // Only honor an explicit user choice. Do not infer from navigator.language —
+  // Googlebot (and many crawlers) report en-*, which would overwrite the
+  // Russian SEO title/description in index.html after hydration.
   try {
     const s = localStorage.getItem(STORAGE_KEY);
     if (s === 'ru' || s === 'en' || s === 'ko') return s;
   } catch {
     /* ignore */
   }
-  if (typeof navigator === 'undefined') return 'ru';
-  const nav = (navigator.language || '').toLowerCase();
-  if (nav.startsWith('ko')) return 'ko';
-  if (nav.startsWith('en')) return 'en';
   return 'ru';
 }
 

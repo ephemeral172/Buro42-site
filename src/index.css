@@ -76,32 +76,146 @@ button:focus-visible {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    /* Infisical app primary lime ~ #e0ed34 */
+    /* Marketing palette — dark default (RGB channels for Tailwind opacity) */
+    --ifi-lime: 224 237 52;
+    --ifi-lime-hover: 194 214 43;
+    --ifi-lime-soft: 252 252 232;
+    --ifi-lime-muted: 248 250 202;
+    --ifi-lime-border: 236 242 109;
+    --ifi-lime-ink: 112 143 19;
+    --ifi-lime-ink-deep: 77 107 11;
+    --ifi-info: 99 176 189;
+    --ifi-border: 43 44 48;
+    --ifi-surface: 247 247 247;
+    --ifi-surface-2: 239 239 239;
+    --ifi-ink: 17 20 25;
+    --ifi-muted: 112 113 116;
+    --ifi-muted-2: 91 92 94;
+    --ifi-card: 22 24 26;
+    --ifi-bg: 25 25 28;
+    --ifi-fg: 235 235 235;
+    --ifi-label: 173 174 176;
+
+    --mineshaft-50: 245 245 245;
+    --mineshaft-100: 235 235 235;
+    --mineshaft-200: 204 204 206;
+    --mineshaft-300: 173 174 176;
+    --mineshaft-400: 112 113 116;
+    --mineshaft-500: 50 52 57;
+    --mineshaft-600: 45 47 51;
+    --mineshaft-700: 38 39 43;
+    --mineshaft-800: 30 31 34;
+    --mineshaft-900: 25 25 28;
+    --mineshaft-950: 18 19 22;
+
+    --bunker-50: 243 244 244;
+    --bunker-100: 232 232 233;
+    --bunker-200: 197 198 200;
+    --bunker-300: 162 164 166;
+    --bunker-400: 93 95 100;
+    --bunker-500: 23 27 33;
+    --bunker-600: 21 24 30;
+    --bunker-700: 17 20 25;
+    --bunker-800: 14 16 20;
+    --bunker-900: 11 13 16;
+
+    --background: 240 6% 10%;
+    --foreground: 0 0% 92%;
+    --card: 200 6% 9%;
+    --card-foreground: 0 0% 92%;
+    --popover: 200 6% 9%;
+    --popover-foreground: 0 0% 92%;
     --primary: 65 84% 57%;
     --primary-foreground: 72 30% 12%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 92%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 65 40% 45%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  html.light {
+    --ifi-border: 216 217 220;
+    --ifi-surface: 244 245 246;
+    --ifi-surface-2: 235 236 238;
+    --ifi-ink: 17 20 25;
+    --ifi-muted: 95 97 102;
+    --ifi-muted-2: 74 76 81;
+    --ifi-card: 255 255 255;
+    --ifi-bg: 244 245 246;
+    --ifi-fg: 21 23 28;
+    --ifi-label: 95 97 102;
+    --ifi-lime-ink: 95 122 16;
+    --ifi-lime-ink-deep: 63 86 8;
+
+    /* Remap scale so bg-mineshaft-900 (sections) becomes light; muted 400 stays readable */
+    --mineshaft-50: 17 20 25;
+    --mineshaft-100: 30 31 34;
+    --mineshaft-200: 50 52 57;
+    --mineshaft-300: 91 92 94;
+    --mineshaft-400: 106 108 112;
+    --mineshaft-500: 154 155 158;
+    --mineshaft-600: 197 198 200;
+    --mineshaft-700: 226 227 229;
+    --mineshaft-800: 236 238 239;
+    --mineshaft-900: 244 245 246;
+    --mineshaft-950: 255 255 255;
+
+    --bunker-50: 17 20 25;
+    --bunker-100: 26 29 34;
+    --bunker-200: 50 52 57;
+    --bunker-300: 93 95 100;
+    --bunker-400: 138 140 144;
+    --bunker-500: 216 217 220;
+    --bunker-600: 228 229 231;
+    --bunker-700: 236 238 239;
+    --bunker-800: 242 243 244;
+    --bunker-900: 232 234 236;
+
+    --background: 210 14% 96%;
+    --foreground: 220 14% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 10%;
+    --primary: 65 84% 57%;
+    --primary-foreground: 72 30% 12%;
+    --secondary: 210 12% 93%;
+    --secondary-foreground: 220 14% 10%;
+    --muted: 210 12% 93%;
+    --muted-foreground: 220 6% 40%;
+    --accent: 210 12% 93%;
+    --accent-foreground: 220 14% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 65 40% 45%;
+    --border: 220 10% 86%;
+    --input: 220 10% 86%;
+    --ring: 65 40% 40%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -111,39 +225,9 @@ button:focus-visible {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* kept for shadcn components that expect .dark — mirrors :root marketing dark */
   }
 }
 
@@ -156,6 +240,16 @@ button:focus-visible {
   html {
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
+  }
+  html.light,
+  html.dark {
+    color-scheme: light dark;
+  }
+  html.light {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
   }
   body {
     @apply bg-background text-foreground antialiased;

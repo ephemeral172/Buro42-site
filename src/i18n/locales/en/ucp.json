@@ -1,0 +1,22 @@
+{
+  "title": "UCP Core",
+  "introBefore": "Agents don’t need the whole thread — they need verifiable context. UCP is an open format: a long discussion collapses into a package of facts, decisions, and conflicts — far fewer tokens, with provenance. Spec and toolchain:",
+  "introAfter": ".",
+  "cta": "Try it in the browser",
+  "techTitle": "Why teams adopt UCP",
+  "features": [
+    "Spend tokens on signal, not noise: up to ~15× smaller on long threads — decisions and sources intact.",
+    "Trust what you ship: every claim cites sources, every source carries sha256, schema-validated before write.",
+    "Fits where you already work: MCP for Cursor and Claude Code, REST for your pipelines — one self-hosted server.",
+    "Closes the quality loop: Usage Receipts show what the agent actually used — the next brief ranks sharper.",
+    "Works without an LLM: structure carries the facts; the model is optional for what’s buried only in prose.",
+    "One contract for humans and models: summary, must_know, decisions, conflicts — predictable in every consumer."
+  ],
+  "stack": [
+    { "label": "Payoff", "value": "Fewer tokens, more signal" },
+    { "label": "Trust", "value": "Hashes · schema · provenance" },
+    { "label": "Integrate", "value": "MCP · Docker · CLI" },
+    { "label": "Standard", "value": "Open SPEC" }
+  ],
+  "footer": "UCP · context you can trust in production"
+}

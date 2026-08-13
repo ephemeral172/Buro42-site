@@ -1,5 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useSyncExternalStore } from 'react';
 import { cn } from '@/lib/utils';
+import { getTheme, subscribeTheme } from '@/theme';
+
+const VANTA_BG = {
+  dark: 0x19191c,
+  light: 0xf4f5f6,
+};
 
 /**
  * TOPOLOGY один раз строит flow_field под размер canvas; встроенный resize()
@@ -65,6 +71,7 @@ export default function VantaTopologyBg({
 }) {
   const elRef = useRef(null);
   const vantaRef = useRef(null);
+  const theme = useSyncExternalStore(subscribeTheme, getTheme, () => 'dark');
 
   useEffect(() => {
     if (disabled || typeof window === 'undefined') return;
@@ -102,7 +109,7 @@ export default function VantaTopologyBg({
         scaleMobile: 1.0,
         forceAnimate: true,
         color: 0xe0ed34,
-        backgroundColor: 0x19191c,
+        backgroundColor: VANTA_BG[theme] ?? VANTA_BG.dark,
       });
       vantaRef.current = instance;
       clearResizeDebounce = patchTopologyResize(instance);
@@ -128,7 +135,7 @@ export default function VantaTopologyBg({
       }
       vantaRef.current = null;
     };
-  }, [disabled]);
+  }, [disabled, theme]);
 
   if (disabled) return null;
 

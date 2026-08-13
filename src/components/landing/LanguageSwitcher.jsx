@@ -61,7 +61,7 @@ export default function LanguageSwitcher({ className }) {
         <Globe className="h-3.5 w-3.5 text-ifi-lime/90" strokeWidth={1.75} />
       </motion.div>
 
-      <div className="relative flex items-stretch rounded-md bg-mineshaft-950/50 p-0.5 ring-1 ring-black/20">
+      <div className="relative flex items-stretch rounded-md bg-mineshaft-950/50 p-0.5 ring-1 ring-black/20 light:ring-ifi-ink/10">
         {LANGS.map(({ code, short, label }) => {
           const active = current === code;
           return (
@@ -77,8 +77,8 @@ export default function LanguageSwitcher({ className }) {
               whileHover={reduceMotion ? {} : { y: active ? 0 : -0.5 }}
               className={cn(
                 'relative z-10 min-h-[1.875rem] min-w-[2.35rem] rounded-md px-2 py-1 text-[11px] font-bold tracking-wide',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ifi-lime/40 focus-visible:ring-offset-2 focus-visible:ring-offset-mineshaft-900',
-                active ? 'text-mineshaft-900' : 'text-mineshaft-500 hover:text-mineshaft-300'
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ifi-lime/40 focus-visible:ring-offset-2 focus-visible:ring-offset-ifi-bg',
+                active ? 'text-ifi-ink' : 'text-mineshaft-500 hover:text-mineshaft-300'
               )}
             >
               {active && (

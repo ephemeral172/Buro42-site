@@ -1,0 +1,22 @@
+{
+  "title": "UCP Core",
+  "introBefore": "에이전트에게 필요한 건 전체 스레드가 아니라 검증 가능한 컨텍스트입니다. UCP는 오픈 포맷: 긴 논의를 사실·결정·갈등이 담긴 패키지로 압축 — 토큰은 줄이고 provenance는 남깁니다. 스펙과 툴체인:",
+  "introAfter": ".",
+  "cta": "브라우저에서 체험",
+  "techTitle": "팀이 UCP를 쓰는 이유",
+  "features": [
+    "노이즈가 아니라 신호에 토큰을 씁니다: 긴 스레드에서 최대 ~15× 압축 — 결정과 소스는 그대로.",
+    "배포하는 패키지를 믿을 수 있습니다: 모든 claim에 출처, 모든 소스에 sha256, 쓰기 전 스키마 검증.",
+    "이미 쓰는 도구에 맞습니다: Cursor·Claude Code용 MCP, 파이프라인용 REST — self-hosted 서버 하나.",
+    "품질 루프를 닫습니다: Usage Receipt로 에이전트가 실제로 쓴 것을 보고 다음 브리핑이 더 날카로워집니다.",
+    "LLM 없이도 동작: 구조가 사실을 나르고, 모델은 산문에만 숨은 내용을 보강할 때 선택.",
+    "사람과 모델을 위한 하나의 계약: summary, must_know, decisions, conflicts — 어디서나 예측 가능."
+  ],
+  "stack": [
+    { "label": "이득", "value": "토큰↓ 신호↑" },
+    { "label": "신뢰", "value": "해시 · 스키마 · provenance" },
+    { "label": "연동", "value": "MCP · Docker · CLI" },
+    { "label": "표준", "value": "오픈 SPEC" }
+  ],
+  "footer": "UCP · 프로덕션에서 믿을 수 있는 컨텍스트"
+}

@@ -16,10 +16,12 @@ import SkillsSection from '../components/case/SkillsSection';
 import TechStackSection from '../components/case/TechStackSection';
 import ShadowGPTSection from '../components/case/ShadowGPTSection';
 import HiremiSection from '../components/case/HiremiSection';
+import WyloSection from '../components/case/WyloSection';
+import RangorSection from '../components/case/RangorSection';
+import UcpCoreSection from '../components/case/UcpCoreSection';
 import SEOMagicSection from '../components/case/SEOMagicSection';
 import RAGPlatformSection from '../components/case/RAGPlatformSection';
 import NutritionAppSection from '../components/case/NutritionAppSection';
-import RunaAISection from '../components/case/RunaAISection';
 import FinalCta from '../components/landing/FinalCta';
 import Footer from '../components/Footer';
 import InfisicalPageShell from '../components/infisical-shell/InfisicalPageShell';
@@ -51,9 +53,9 @@ export default function Home() {
         <TechStackSection />
         <CasesSectionHeader />
         {/* Единый фон для продуктовых кейсов — без столкновения пастельных градиентов и полупрозрачных слоёв. */}
-        <div className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900">
+        <div className="relative overflow-hidden border-y border-ifi-border/80 bg-mineshaft-900 light:bg-ifi-card">
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,237,52,0.055),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,237,52,0.055),transparent_55%)] light:bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(224,237,52,0.12),transparent_55%)]"
             aria-hidden
           />
           <div className="relative z-10">
@@ -71,6 +73,27 @@ export default function Home() {
                 aria-hidden
               />
             </div>
+            <WyloSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
+            <RangorSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
+            <UcpCoreSection />
+            <div className="mx-auto max-w-6xl px-4">
+              <div
+                className="h-px w-full bg-gradient-to-r from-transparent via-ifi-border/55 to-transparent"
+                aria-hidden
+              />
+            </div>
             <SEOMagicSection />
             <div className="mx-auto max-w-6xl px-4">
               <div
@@ -82,7 +105,6 @@ export default function Home() {
           </div>
         </div>
         <NutritionAppSection />
-        <RunaAISection />
         <FinalCta />
         <Footer />
       </div>
